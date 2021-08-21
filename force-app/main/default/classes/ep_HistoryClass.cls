@@ -7,12 +7,22 @@ public with sharing class ep_HistoryClass {
         @AuraEnabled public Boolean Important;
         @AuraEnabled public String Session;
         @AuraEnabled public Double Value;
+        @AuraEnabled public String Description;
     }
 
 @AuraEnabled(cacheable=true)
     public static List<InfoCls> getDateSpecTasks(String dateSelected){
         Date sampDate=Date.valueOf(dateSelected);
-        List<Daily_Task__c> dList= [SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c FROM Daily_Task__c WHERE Scheduled_Date__c =: sampDate];
+        List<Daily_Task__c> dList= new List<Daily_Task__c>();
+        if(dateSelected==''){
+             dList= [SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c
+                                    FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() ORDER BY Session__c];
+        }
+        else{
+             dList= [SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c
+                                    FROM Daily_Task__c WHERE Scheduled_Date__c =: sampDate ORDER BY Session__c];
+        }
+        
         List<InfoCls> infList= new List<InfoCls>();
         for(Daily_Task__c d:dList){
             InfoCls i= new InfoCls();
@@ -22,6 +32,7 @@ public with sharing class ep_HistoryClass {
             i.Session=d.Session__c;
             i.Value=d.Value__c;
             i.Id=d.Id;
+            i.Description=d.Description__c;
             infList.add(i);
         }
         return infList;
@@ -57,7 +68,7 @@ public with sharing class ep_HistoryClass {
      
     List<Daily_Task__c> taskList= new List<Daily_Task__c>();    
     
-    taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today()];
+    taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() OR isRecurring__c=true];
         
     return taskList;    
     }
