@@ -1,0 +1,33 @@
+.something{
+
+}
+
+.add-panel{
+
+}
+
+.text-inp{
+
+}
+
+.add-btn{
+    margin-top: 1.8em;
+}
+
+.btn-cls{
+    height: 2em;
+    width: 4em;
+    border: 3px solid rgb(0 95 178);
+    background: rgb(49 112 167 / 84%);
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-shadow: -2px 1px 2px black;
+}
+
+.question-block{
+    font-size: 1.2em;
+    font-style: italic;
+    font-family: 'Lato';
+}

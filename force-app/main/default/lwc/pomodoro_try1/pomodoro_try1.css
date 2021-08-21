@@ -1,0 +1,23 @@
+.player-container{
+    width: 420px;
+    height: 345px;
+}
+
+.container{
+    width: 420px;
+    height: 345px;
+}
+
+.time-display{
+    font-size: 50px;
+    font-weight: 700;
+    position: absolute;
+    z-index: 100;
+    color: white;
+    left: 36%;
+    top: 33%;
+}
+
+.timer-cls{
+    position: relative;
+}

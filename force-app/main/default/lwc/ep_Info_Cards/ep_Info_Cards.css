@@ -1,0 +1,23 @@
+.something{
+
+}
+
+.phys-cls{
+    display: block;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 6px;
+    background: linear-gradient(
+45deg
+, transparent, green, transparent);
+}
+
+.ent-cls{
+    display: block;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 6px;
+    background: linear-gradient(
+45deg
+, transparent, red, transparent);
+}

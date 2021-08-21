@@ -1,0 +1,10 @@
+.home-background{
+background-color: aliceblue;
+height: 2em;
+}
+
+.home-header{
+    font-size: 40px;
+    font-weight: 800;
+    margin-left: 9em;
+}

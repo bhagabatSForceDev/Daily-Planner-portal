@@ -1,0 +1,30 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12">
+            <lightning-combobox options={options} value={value} onselect={handleSelect} onchange={handleSelect}></lightning-combobox>
+        </div>
+        <div class="slds-col slds-grid slds-wrap slds-size_12-of-12">
+            <template if:true={isEd}>
+                <template for:each={edList} for:item="task">
+                    <div key={task.Id} class="slds-col">
+                    <lightning-formatted-rich-text value={task.Value__c}></lightning-formatted-rich-text>
+                </div>
+                </template>
+            </template>
+            <template if:true={isPhy}>
+                <template for:each={phyList} for:item="task">
+                    <div key={task.Id} class="slds-col">
+                        <lightning-formatted-rich-text value={task.Value__c}></lightning-formatted-rich-text>
+                    </div>
+                 </template>
+            </template>
+            <template if:true={isEnt}>
+                <template for:each={entList} for:item="task">
+                    <div key={task.Id} class="slds-col">
+                        <lightning-formatted-rich-text value={task.Value__c}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,141 @@
+.container{
+margin: 1em;
+}
+
+.details{
+padding: 2em;
+}
+
+.btn-cont{
+    padding-top: 4.4em;
+}
+
+.edit-btn .slds-icon{
+    padding: 3px;
+    height: 20px;
+    width: 20px;
+    margin-top: -5px;
+    margin-left: 12px;
+    fill: #fff;
+    box-shadow: 0 0 5px 2px #fff;
+}
+
+.update-btn{
+    width: 140px;
+    height: 45px;
+    box-shadow: 2px;
+    border-radius: 2.5em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.last-container{
+    border-radius: 1.5em;
+}
+
+.morning-cls{
+    /* border: 2px solid #164A41; */
+    background-image: linear-gradient(45deg, #164A41, #4D774E, #9DC88D);
+}
+
+.afternoon-cls{
+    /* border: 2px solid rgb(230, 75, 14); */
+    background-image: linear-gradient(45deg,#b63a09,#e64b0e,#f0e79b);
+}
+
+.night-cls{
+    /* border: 2px solid rgb(5, 3, 31); */
+    background-image: linear-gradient(45deg, rgb(5, 3, 31), rgb(56, 33, 160), rgb(152, 139, 230));
+}
+
+.name-cls{
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: -2px 1px #000;
+    display: flex;
+}
+
+.sub-cls{
+    font-size: 1.5em;
+}
+
+.sess-cls{
+    font-size: 1.5em;
+}
+
+.val-cls{
+    font-size: 1.5em;
+}
+
+.desc-cls{
+    font-size: 1.5em;
+    padding-top: 1em;
+    font-family: monospace;
+    text-shadow: -1px 1px #000;
+}
+
+.imp-cls{
+    border: 6px red;
+    border-style: ridge;
+}
+
+@media (max-width: 1000px) {
+
+    .update-btn{
+        width: 93px;
+        height: 45px;
+        box-shadow: 2px;
+        border-radius: 2.5em;
+        font-family: 'Roboto', sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+        margin-left: -3em;
+    }
+
+
+}
+
+@media (max-width: 500px) {
+
+    .update-btn{
+        width: 93px;
+        height: 45px;
+        box-shadow: 2px;
+        border-radius: 2.5em;
+        font-family: 'Roboto', sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        box-shadow: 0px 8px 15px rgb(0 0 0 / 10%);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+        margin-left: -6em;
+        margin-top: -4em;
+    }
+
+
+}

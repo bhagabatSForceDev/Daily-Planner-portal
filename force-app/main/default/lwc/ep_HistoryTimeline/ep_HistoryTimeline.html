@@ -1,0 +1,27 @@
+<template>
+<div class="container"> 
+    <div class="search-panel">
+    <lightning-input label="From" value={fromDate} onchange={handleFromValue}></lightning-input>
+    <lightning-input label="To" value={toDate} onchange={handleToValue}></lightning-input>
+    </div>
+    <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+    
+ <div class="results-panel"> 
+    {emptyMsg}
+
+<template if:true={isList}>
+    <template for:each={historyList} for:item="hist">
+       <div key={hist.Id} class="info-card">
+           <div class="name-cls">{hist.Name}</div>
+           <div class="slds-grid">
+           <div class="year-cls slds-col">Year: {hist.Year__c}</div>
+           <div class="categ-cls slds-col">Category: {hist.Category__c}</div>
+           </div>
+           <div class="descr-cls">{hist.Description__c}</div>      
+        
+    </div> 
+    </template>
+</template>
+</div>   
+</div>  
+</template>

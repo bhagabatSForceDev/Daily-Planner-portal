@@ -1,0 +1,120 @@
+.container{
+    padding: 2em;
+    border-radius: 13px;
+    background-size: cover;
+    animation: fade-in;
+    animation-duration: 2s;
+}
+
+.change-btn-cls{
+    width: 140px;
+    height: 45px;
+    box-shadow: 2px;
+    border-radius: 2.5em;
+    font-family: Roboto,sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: linear;
+    border: none;
+    box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
+    transition: all .3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin: 5px;
+}
+
+.morning-btn{
+    background: linear-gradient(45deg, #9DC88D, transparent, #9DC88D);
+    color: #fff;
+    text-shadow: -1px 1px #000;
+    font-weight: 700;
+}
+
+.afternoon-btn{
+    background: linear-gradient(45deg, rgb(230, 75, 14), transparent, rgb(230, 75, 14));
+    color: #fff;
+    text-shadow: -1px 1px #000;
+    font-weight: 700;
+}
+
+.night-btn{
+    background: linear-gradient(45deg, rgb(56, 33, 160), transparent, rgb(56, 33, 160));
+    color: #fff;
+    text-shadow: -1px 1px #000;
+    font-weight: 700;
+}
+
+.btn-panel{
+    position: relative;
+    padding: 1em;
+}
+
+.m1{
+background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/morning1.jpg");
+}
+
+.m2{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/morning2.jpg");
+}
+
+.m3{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/morning3.jpg");
+}
+
+.a1{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/afternoon1.jpg");
+}
+
+.a2{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/afternoon2.jpg");
+}
+
+.a3{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/afternoon3.jpg");
+}
+
+.n1{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/night1.jpg");
+}
+
+.n2{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/night2.jpg");
+}
+
+.n3{
+    background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618493353000/Custom_Images/CustomImages/night3.jpg");
+}
+
+.no-tasks{
+    padding: 5em;
+    color: #fff;
+    text-shadow: -3px 0px black;
+    margin: 1em;
+    border: 3px solid #fff;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: cursive;
+    border-radius: 13px;
+}
+
+.progress-cls{
+    width: 93.6%;
+    margin-left: 3.2%;
+}
+
+@media (max-width: 500px) {
+
+.container{
+    padding: 2em;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-panel{
+    padding: 0em;
+}
+}

@@ -1,0 +1,11 @@
+<template>
+   
+    QUESTION:
+    <lightning-input-rich-text value={question} onchange={handleQuestion}></lightning-input-rich-text>
+    ANSWERS:
+    <lightning-input-rich-text value={answer} onchange={handleAnswer}></lightning-input-rich-text>
+
+    <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+    {question}
+    {answer}
+</template>

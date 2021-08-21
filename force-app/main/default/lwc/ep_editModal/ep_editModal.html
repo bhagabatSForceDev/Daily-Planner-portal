@@ -1,0 +1,74 @@
+<template>
+<!-- Modal/Popup Box LWC starts here -->
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+        <!-- Modal/Popup Box LWC header here  class="slds-modal__header"-->
+        <header class="something">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+            <!-- <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp Box header LWC</h2> -->
+        </header>
+        
+        <!-- Modal/Popup Box LWC body starts here -->
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <!-- <p><b>Reload the page for now. It's still in development. ID= {thisId}
+            </b></p> -->
+
+            
+            <lightning-card
+    title="Edit Record"
+    icon-name="standard:work_plan">
+    <div class="slds-var-m-around_medium">
+        <lightning-record-edit-form
+            object-api-name={objectApiName}
+            record-id={thisId.Id}
+            onsuccess={handleSuccess}
+            
+        >
+            <lightning-messages></lightning-messages>
+            <lightning-input-field
+                field-name="Subject__c" value={thisId.Subject__c}
+            ></lightning-input-field>
+            <lightning-input-field
+                field-name="Session__c" value={thisId.Session__c}
+            ></lightning-input-field>
+            <lightning-input-field
+                field-name="Value__c" value={thisId.Value__c}
+            ></lightning-input-field>
+            <template if:false={thisId.Important__c}>
+            <lightning-input-field
+                field-name="Scheduled_Date__c" value={thisId.Scheduled_Date__c}
+            ></lightning-input-field>
+        </template>
+        <template if:true={thisId.Important__c}>
+            <lightning-input-field
+                field-name="Scheduled_Time__c" value={thisId.Scheduled_Time__c}
+            ></lightning-input-field>
+        </template>
+            <lightning-input-field
+                field-name="Description__c" value={thisId.Description__c}
+            ></lightning-input-field>
+
+        </lightning-record-edit-form>
+    </div>
+
+</lightning-card>
+
+
+            
+        </div>
+        <!-- Modal/Popup Box LWC footer starts here -->
+        <footer class="slds-modal__footer">
+            <button class="slds-button slds-button_destructive left-btn" onclick={deleteRecord} title="Cancel">Delete</button>
+            <button class="slds-button slds-button_brand" onclick={saveRecord} title="OK">Save</button>
+        </footer>
+        
+    </div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</template>

@@ -1,0 +1,75 @@
+.container{
+    /* display: flex; */
+    width: 13em;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    padding: 2em 0 3em;
+    /* border: 2px solid #000; */
+    border-radius: 0 17px 17px 17px;
+    box-shadow: -4px 5px 8px 3px #000;
+    margin-top: 2.5em;
+    margin-left: 1.5em;
+}
+
+.btn-cls{
+    /*border: 2px solid #2622eb;*/
+    height: 45px;
+    box-shadow: 2px;
+    border-radius: 2.5em;
+    font-family: Roboto,sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: linear;
+    border: none;
+    box-shadow: 0 8px 15px rgb(0 0 0 / 10%);
+    transition: all .3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin: 5px;
+    padding: 11px;
+    padding-top: 14px;
+}
+
+.btn-cls:hover{
+    color: #fafafa;
+    background: linear-gradient(
+        180deg
+        , #1d0fed, #8f89e9);
+    text-decoration: blink;
+    text-shadow: 1px 1px black;
+    
+}
+
+.home-btn{
+    width: 40px;
+    fill: blue;
+}
+.home-btn:hover{
+    width: 40px;
+    fill: #fafafa;
+}
+
+.close-btn{
+    margin-top: 3.7em;
+    margin-right: 1.3em;
+    z-index: 3;
+}
+
+.something{
+    background: linear-gradient(
+        45deg
+        ,#030303,transparent);
+            width: 3em;
+            padding: 10px 10px 4px;
+            box-shadow: -2px 2px 5px 2px #000000c4;
+            border-radius: 8px;
+}
+
+.main-container{
+    height: 2em;
+}

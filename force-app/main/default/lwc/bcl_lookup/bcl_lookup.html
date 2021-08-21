@@ -1,0 +1,36 @@
+<template>
+    <!-- <lightning-combobox options={options} value={value} onchange={handleChange}></lightning-combobox> -->
+    <div class="slds-grid slds-wrap">
+     <div class="slds-col slds-size_12-of-12">
+        <lightning-input type="search"
+                     label="Search"
+                     variant="label-hidden"
+                     onfocus={onSearch}
+                     onfocusout={onOutFocus}
+                     value={searchText}
+                     onchange={handleTextChange}>
+    </lightning-input>
+     </div>
+     <template if:true={isDropdown}>
+     <div class="slds-col slds-size_12-of-12">
+        <div id="listbox-id-3" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                <template for:each={searchedAccs} for:item="acc">
+                <li key={acc.Id} role="presentation" class="slds-listbox__item" onclick={handleSelection} data-value={acc.label}>
+               
+                    <div aria-disabled="false" id={acc.Id} 
+                    class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" 
+                    role="option">
+    
+                        <span class="icn-cls"><lightning-icon icon-name="standard:account" alternative-text="Account" size="x-small" title="Account"></lightning-icon></span>
+                        <span class="lbl-cls">{acc.label}</span>
+                    </div>
+                </li>
+            </template>
+            </ul>
+        </div>
+     </div> 
+    </template>  
+   
+</div>
+</template>

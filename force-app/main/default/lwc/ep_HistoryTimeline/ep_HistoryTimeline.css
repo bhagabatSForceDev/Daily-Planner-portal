@@ -1,0 +1,48 @@
+.search-panel{
+display: flex;
+padding: 10px;
+}
+
+.results-panel{
+   border: 2px solid black;
+   border-radius: 5px; 
+   color: #EEFBFB;
+   background-image: repeating-linear-gradient(
+      180deg
+      , #203647, #B73225, #203647 80px);
+   padding: 10px;
+   margin-top: 1%;
+}
+
+.info-card{
+   display: block;
+   padding: 10px;
+   margin-top:1.7em;
+   border-radius: 8px;
+   color: #EEFBFB;
+   background-image: linear-gradient(180deg, #12232E, #007cc7);
+}
+
+.name-cls{
+   font-size: 1.7em;
+    position: relative;
+    font-weight: 600;
+    font-style: initial;
+    font-family: sans-serif;
+}
+
+.year-cls{
+   font-weight: 700;
+    font-family: 'Montserrat';
+    padding: 10px;
+}
+
+.categ-cls{
+   font-weight: 700;
+    font-family: 'Montserrat';
+    padding: 10px;
+}
+
+.descr-cls{
+   font-size: 17px;
+}

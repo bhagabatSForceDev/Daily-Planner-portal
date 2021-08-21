@@ -1,0 +1,21 @@
+<template>
+    <template if:true={isCheck}>
+        <lightning-input type="checkbox" checked={displayValue} ></lightning-input>
+    </template>
+    <template if:true={isNum}>
+        {displayValue}
+    </template>
+    <template if:true={isText}>
+        {displayValue}
+    </template>
+    <template if:true={isPick}>
+        <div class="picklist-cls">
+        <lightning-combobox options={options} value={displayValue} onchange={handleChange}></lightning-combobox>
+    </div>
+    </template>
+    <template if:true={isAccount}>
+        <div class="">
+        <c-bcl_lookup></c-bcl_lookup>
+    </div>
+    </template>
+</template>

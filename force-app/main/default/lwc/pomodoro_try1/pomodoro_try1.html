@@ -1,0 +1,18 @@
+<template>
+    <div class="container">
+        <template if:true={player}>
+        <iframe class="player-container"  src={youtubeUrl}>
+        </iframe>
+    </template>
+    <template if:false={player}>
+      <lightning-button onclick={startTimer} label="START SESSION"></lightning-button>
+     <div class="timer-cls" onclick={doNothing}>
+      <div class="time-display">
+        {Time}
+      </div>
+      <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/UxTZDNv0Zej4s" width="100%" height="100%" style="position:absolute" class="giphy-embed"></iframe></div><p></p>
+    </div>
+    </template>
+    </div>
+    <!--width="420" height="345"-->
+</template>

@@ -1,0 +1,25 @@
+<template>
+<lightning-combobox options={options} value={value} onchange={handleChange}></lightning-combobox>
+<table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" aria-label="Example table of Opportunities with striped rows">
+    <thead>
+        <tr class="slds-line-height_reset">
+            <template for:each={columns} for:item="column">
+                <th key={column.label} aria-label={column.label} aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+                    {column.label}
+                </th>
+            </template>
+        </tr>
+    </thead>
+    <tbody>
+        <template for:each={data} for:item="dataItem">
+        <tr key={dataItem} class="slds-hint-parent">
+            <template for:each={columns} for:item="column">
+            <td key={column.value} class="slds-cell-edit" role="gridcell">
+                <c-bcl_table-cell cell-data={value} column-val={column.label} row-data={dataItem}></c-bcl_table-cell>
+            </td>
+        </template>
+        </tr>     
+    </template>   
+    </tbody>
+</table>
+</template>

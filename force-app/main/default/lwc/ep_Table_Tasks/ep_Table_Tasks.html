@@ -1,0 +1,19 @@
+<template>
+    <template if:true={isTable}>
+        <div class="date-select">
+            <lightning-input type="date" name="input1" label="Enter a date" onchange={handleDateChange} value={selectedDate}></lightning-input>
+        </div>
+        <div class="table-cls">
+            <lightning-datatable
+                    data={newData}
+                    columns={columns}
+                    key-field="Id"
+                    hide-checkbox-column="true">
+            </lightning-datatable>
+            <div class="sum-cls">Total Value: {sum}</div>
+        </div>
+    </template>
+   <template if:true={isQuad}>
+    <c-ep_-info_-cards></c-ep_-info_-cards>
+   </template>
+</template>

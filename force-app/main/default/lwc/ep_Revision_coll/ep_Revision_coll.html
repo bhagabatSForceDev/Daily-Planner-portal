@@ -1,0 +1,25 @@
+<template>
+    <div class="container">
+    
+        <template for:each={revList} for:item="rev">
+          <div class="question-block" key={rev}> {rev.str} 
+              <lightning-button-icon icon-name="utility:world" size="xx-small" variant="brand" label="Search" value={rev.str} onclick={handleSearch}></lightning-button-icon>
+              <template if:true={rev.ref}>
+              <lightning-button-icon icon-name="utility:side_list" size="xx-small" variant="brand" label="Reference" value={rev.ref} onclick={handleRef}></lightning-button-icon>
+            </template>
+        </div>
+        </template>
+   
+        <div class="add-panel slds-grid slds-wrap">
+        <div class="text-inp slds-col slds-size_7-of-8">
+            <lightning-input label="Question" value={textInput} onchange={handleTextchange} onkeypress={handleKey} placeholder="Enter your question here"></lightning-input>
+        </div>
+        <div class="text-inp slds-col slds-size_7-of-8">
+            <lightning-input label="Ref" value={revInput} onchange={handleRevchange} onkeypress={handleKey} placeholder="Enter reference"></lightning-input>
+        </div>
+        <div class="add-btn slds-col slds-size_1-of-8">
+           <button class="btn-cls" onclick={handleSave}> Add </button>
+        </div>
+    </div>
+    </div>
+</template>

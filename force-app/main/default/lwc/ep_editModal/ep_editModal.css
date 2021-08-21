@@ -1,0 +1,19 @@
+.something{
+    position: relative;
+    border-top-right-radius: var(--sds-c-modal-radius-border, var(--lwc-borderRadiusMedium,0.25rem));
+    border-top-left-radius: var(--sds-c-modal-radius-border, var(--lwc-borderRadiusMedium,0.25rem));
+    border-bottom-width: var(--sds-c-modal-sizing-border, var(--lwc-borderWidthThick,2px));
+    /* border-bottom-style: solid; */
+    border-bottom-color: var(--sds-c-modal-color-border, var(--lwc-colorBorder,#D4D4D4));
+    background-color: var(--sds-c-modal-header-color-background, var(--sds-c-modal-color-background, var(--lwc-colorBackgroundAlt,rgb(255, 255, 255))));
+    color: var(--sds-c-modal-header-text-color, var(--sds-c-modal-text-color));
+    /* padding-top: var(--sds-c-modal-header-spacing-block-start, var(--lwc-spacingMedium,1rem));
+    padding-right: var(--sds-c-modal-header-spacing-inline-end, var(--lwc-spacingMedium,1rem));
+    padding-bottom: var(--sds-c-modal-header-spacing-block-end, var(--lwc-spacingMedium,1rem));
+    padding-left: var(--sds-c-modal-header-spacing-inline-start, var(--lwc-spacingMedium,1rem)); */
+    text-align: center;
+}
+
+.left-btn{
+    float: left;
+}

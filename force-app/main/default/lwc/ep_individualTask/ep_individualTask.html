@@ -1,0 +1,29 @@
+<template>
+<div class="container ">
+    <!-- <img src={backImg}> --> 
+    <div class="inner-container">
+    <div class="last-container slds-grid"> 
+    <div class="details slds-text-color_inverse slds-col slds-grid slds-wrap slds-size_7-of-8">
+    
+        <div class="slds-col slds-size_8-of-8 name-cls">{sampObject.Subject__c} 
+           <div class="edit-btn" onclick={handleEdit}> 
+            <svg focusable="false" data-key="edit" aria-hidden="true" viewBox="0 0 52 52" class="slds-icon slds-icon-text-default"><g><g><path d="M9.5 33.4l8.9 8.9c.4.4 1 .4 1.4 0L42 20c.4-.4.4-1 0-1.4l-8.8-8.8c-.4-.4-1-.4-1.4 0L9.5 32.1c-.4.4-.4 1 0 1.3zM36.1 5.7c-.4.4-.4 1 0 1.4l8.8 8.8c.4.4 1 .4 1.4 0l2.5-2.5c1.6-1.5 1.6-3.9 0-5.5l-4.7-4.7c-1.6-1.6-4.1-1.6-5.7 0l-2.3 2.5zM2.1 48.2c-.2 1 .7 1.9 1.7 1.7l10.9-2.6c.4-.1.7-.3.9-.5l.2-.2c.2-.2.3-.9-.1-1.3l-9-9c-.4-.4-1.1-.3-1.3-.1l-.2.2c-.3.3-.4.6-.5.9L2.1 48.2z"></path></g></g></svg>       
+        </div>
+        </div>
+        <div class="slds-col slds-grid slds-wrap slds-size_8-of-8">
+        <div class="slds-col slds-size_1-of-2 slds-max-small-size_12-of-12 sess-cls">Value: {sampObject.Value__c}</div>
+        <div class="slds-col slds-size_1-of-2 slds-max-small-size_12-of-12 val-cls">{timeText}</div>
+        </div>
+        <div class="slds-col slds-size_7-of-8 desc-cls"><lightning-formatted-rich-text value={sampObject.Description__c}></lightning-formatted-rich-text></div>       
+        
+           
+    </div> 
+    <div class="btn-cont slds-col slds-size_1-of-8">
+       
+        <button data-id={sampObject.Id} value={sampObject.Id} class="update-btn" onclick={handleUpdate}>{btnText}</button>
+    
+    </div>  
+</div>  
+</div>
+</div>
+</template>
