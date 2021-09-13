@@ -177,7 +177,7 @@ else if(sess=='Night'){
     console.log('Night click');
 }
 else if(sess=='Add'){
-    window.open("/Admin/s/add-tasks");
+    window.open("/Admin/s/add-tasks","_self");
 }
 else if(sess=='Delete'){
     if(window.confirm('CAUTION: All the previous records will be deleted')){
