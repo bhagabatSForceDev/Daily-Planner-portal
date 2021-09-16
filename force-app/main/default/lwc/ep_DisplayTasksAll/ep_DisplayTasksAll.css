@@ -6,6 +6,11 @@
     animation-duration: 2s;
 }
 
+.icon-cls-pad{
+    width: 10%;
+    margin-left: 45%;
+}
+
 .change-btn-cls{
     width: 140px;
     height: 45px;
@@ -116,5 +121,9 @@ background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/A
 
 .btn-panel{
     padding: 0em;
+}
+
+.icon-cls-pad{
+    transform: scale(0.5);
 }
 }

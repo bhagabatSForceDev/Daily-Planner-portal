@@ -1,59 +1,63 @@
 <template>
-  <template if:true={modalOpen}>
-   <c-ep_edit-modal onclose={handleClose} this-id={editId}></c-ep_edit-modal>
-  </template>
-    <div id="container" class="container m1">
-      <div class="btn-panel slds-grid">
-        <button class="change-btn-cls slds-col" onclick={handleSession} value="Add">
-            <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Event" title="Event"></lightning-icon>
+<template if:true={modalOpen}>
+  <c-ep_edit-modal onclose={handleClose} this-id={editId}></c-ep_edit-modal>
+</template>
+  <div id="container" class="container m1">
+    <div class="btn-panel slds-grid">
+      <button class="change-btn-cls slds-col" onclick={handleSession} value="Add">
+        <div class="icon-cls-pad">
+          <lightning-icon icon-name="utility:add" size="x-small" alternative-text="Event" title="Event"></lightning-icon>
+        </div>
         </button>
-        <!-- <lightning-button-icon icon-name="utility:add"  alternative-text="Settings" title="Settings" class="slds-col"></lightning-button-icon> -->
-        <button class="change-btn-cls morning slds-col" onclick={handleSession} value="Morning">Morning</button>
-        <button class="change-btn-cls afternoon slds-col" onclick={handleSession} value="Afternoon">Afternoon</button>
-        <button class="change-btn-cls night slds-col" onclick={handleSession} value="Night">Night</button>
-        <button class="change-btn-cls slds-col" onclick={handleSession} value="Delete">
-          <lightning-icon onclick={handleSession} value="Delete" size="x-small" icon-name="utility:delete" alternative-text="Event" title="Event"></lightning-icon> 
-          </button>
-          <!-- <lightning-button-icon icon-name="utility:delete"  alternative-text="Settings" title="Settings" class="slds-col"></lightning-button-icon>   -->
-      </div> 
-      <div class="progress-cls" onclick={handleReport}>
-      <lightning-progress-bar size="large" value={currentVal} variant="circular"></lightning-progress-bar>
-    </div>  
-        <template if:true={isMorning}>
-            <template if:true={noMorning}>
-              <div class="no-tasks">
-                NO TAKS SCHEDULED FOR MORNING
-              </div>
-            </template>
-            <template if:false={noMorning}>
-              <template for:each={morningTaskList} for:item="samp">
-                <c-ep_individual-task key={samp.Id} samp-object={samp} onedit={handleEdit}></c-ep_individual-task> 
-              </template>
-            </template>
-        </template>
-        <template if:true={isAfternoon}>
-          <template if:true={noAfternoon}>
+      <!-- <lightning-button-icon icon-name="utility:add"  alternative-text="Settings" title="Settings" class="slds-col"></lightning-button-icon> -->
+      <button class="change-btn-cls morning slds-col" onclick={handleSession} value="Morning">Morning</button>
+      <button class="change-btn-cls afternoon slds-col" onclick={handleSession} value="Afternoon">Afternoon</button>
+      <button class="change-btn-cls night slds-col" onclick={handleSession} value="Night">Night</button>
+      <button class="change-btn-cls slds-col" onclick={handleSession} value="Delete">
+        <div class="icon-cls-pad">
+        <lightning-icon onclick={handleSession} value="Delete" size="x-small" icon-name="utility:delete" alternative-text="Event" title="Event"></lightning-icon> 
+      </div>  
+      </button>
+        <!-- <lightning-button-icon icon-name="utility:delete"  alternative-text="Settings" title="Settings" class="slds-col"></lightning-button-icon>   -->
+    </div> 
+    <div class="progress-cls" onclick={handleReport}>
+    <lightning-progress-bar size="large" value={currentVal} variant="circular"></lightning-progress-bar>
+  </div>  
+      <template if:true={isMorning}>
+          <template if:true={noMorning}>
             <div class="no-tasks">
-              NO TAKS SCHEDULED FOR AFTERNOON
+              NO TAKS SCHEDULED FOR MORNING
             </div>
           </template>
-          <template if:false={noAfternoon}>
-            <template for:each={afternoonTaskList} for:item="samp">
+          <template if:false={noMorning}>
+            <template for:each={morningTaskList} for:item="samp">
               <c-ep_individual-task key={samp.Id} samp-object={samp} onedit={handleEdit}></c-ep_individual-task> 
             </template>
           </template>
+      </template>
+      <template if:true={isAfternoon}>
+        <template if:true={noAfternoon}>
+          <div class="no-tasks">
+            NO TAKS SCHEDULED FOR AFTERNOON
+          </div>
         </template>
-        <template if:true={isNight}>
-          <template if:true={noNight}>
-            <div class="no-tasks">
-              NO TAKS SCHEDULED FOR NIGHT
-            </div>
-          </template>
-          <template if:false={noNight}>
-            <template for:each={nightTaskList} for:item="samp">
-              <c-ep_individual-task key={samp.Id} samp-object={samp} onedit={handleEdit}></c-ep_individual-task> 
-            </template>
+        <template if:false={noAfternoon}>
+          <template for:each={afternoonTaskList} for:item="samp">
+            <c-ep_individual-task key={samp.Id} samp-object={samp} onedit={handleEdit}></c-ep_individual-task> 
           </template>
         </template>
-    </div>
+      </template>
+      <template if:true={isNight}>
+        <template if:true={noNight}>
+          <div class="no-tasks">
+            NO TAKS SCHEDULED FOR NIGHT
+          </div>
+        </template>
+        <template if:false={noNight}>
+          <template for:each={nightTaskList} for:item="samp">
+            <c-ep_individual-task key={samp.Id} samp-object={samp} onedit={handleEdit}></c-ep_individual-task> 
+          </template>
+        </template>
+      </template>
+  </div>
 </template>

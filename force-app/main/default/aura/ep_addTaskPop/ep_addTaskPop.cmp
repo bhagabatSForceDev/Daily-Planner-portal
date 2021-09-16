@@ -1,0 +1,9 @@
+<aura:component description="LightningFlow" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
+<aura:attribute name="messageRec" type="Boolean"></aura:attribute>
+<lightning:messageChannel
+    type="popMessageChannel__c"
+    onMessage="{!c.handleMessage}"
+    scope="APPLICATION"
+  />
+ VALUE: {!v.messageRec} 
+</aura:component>	

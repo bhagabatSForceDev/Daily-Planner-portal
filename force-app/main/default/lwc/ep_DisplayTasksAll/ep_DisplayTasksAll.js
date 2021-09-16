@@ -2,6 +2,8 @@ import { wire,track,api,LightningElement } from 'lwc';
 import images from '@salesforce/resourceUrl/Custom_Images';
 import getDailyTasks from '@salesforce/apex/ep_HistoryClass.getDailyTasks';
 import deleteTasks from '@salesforce/apex/ep_HistoryClass.deletePrevTasks';
+import { publish, MessageContext } from 'lightning/messageService';
+import popMC from '@salesforce/messageChannel/popMessageChannel__c';
 import { refreshApex } from '@salesforce/apex';
 export default class Ep_DisplayTasksAll extends LightningElement {
 
@@ -55,6 +57,8 @@ renderedCallback(){
    }
 
 }
+
+@wire(MessageContext) messageContext;
 
 wiredProperty;
 @wire(getDailyTasks) getAllTasks(result){  
@@ -177,7 +181,11 @@ else if(sess=='Night'){
     console.log('Night click');
 }
 else if(sess=='Add'){
-    window.open("/Admin/s/add-tasks","_self");
+    console.log("Pre-Publish");
+    const message={popValue: 'Add'};
+    publish(this.messageContext, popMC, message);
+    console.log("Post-Publish");
+    //window.open("/Admin/s/add-tasks","_self");
 }
 else if(sess=='Delete'){
     if(window.confirm('CAUTION: All the previous records will be deleted')){

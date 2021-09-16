@@ -1,27 +1,34 @@
 .container{
- background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618209570000/Custom_Images/CustomImages/how-to-create-daily-routine-hero-9abc3e09a46b49fe85b7038f65a5abbc.jpg");
- position: relative;
- height: 22rem;
- width: 100%;
- background-size: cover;
+background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/Admin/resource/1618209570000/Custom_Images/CustomImages/how-to-create-daily-routine-hero-9abc3e09a46b49fe85b7038f65a5abbc.jpg");
+position: relative;
+height: 22rem;
+width: 100%;
+background-size: cover;
 }
 
 .btn-cls{
-    position: absolute;
-    top: 42%;
-    left: 47%;
-    font-family: sans-serif;
-    border-radius: 5px;
-    padding: 24px 40px;
-    font-size: 17px;
-    font-weight: 700;
-    animation-fill-mode: forwards;
-    background-color: #FBE8A6;
-    border: 2px #be854e solid;
+position: absolute;
+top: 42%;
+left: 40%;
+font-family: sans-serif;
+border-radius: 5px;
+padding: 24px 40px;
+font-size: 17px;
+font-weight: 700;
+animation-fill-mode: forwards;
+background-color: #FBE8A6;
+border: 2px #be854e solid;
 }
 
 .btn-cls:hover{
-    background-color: #be854e; 
-    border: 2px #FBE8A6 solid;
-    color: white;
+background-color: #be854e; 
+border: 2px #FBE8A6 solid;
+color: white;
 }
+
+@media (max-width: 500px) {
+.btn-cls{
+left: 22%;
+}
+}
+
