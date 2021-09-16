@@ -125,5 +125,6 @@ background-image: url("https://my-exam-portal-developer-edition.ap24.force.com/A
 
 .icon-cls-pad{
     transform: scale(0.5);
+    margin-left: 35%;
 }
 }
