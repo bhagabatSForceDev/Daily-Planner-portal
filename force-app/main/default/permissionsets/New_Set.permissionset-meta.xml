@@ -1287,6 +1287,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Daily_Task__c.Sprint_Element__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Daily_Task__c.Test_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1503,6 +1508,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Information__c.Completed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Jira_Comment__c.Comment_Body__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2753,6 +2763,26 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Solution.SolutionNote</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sprint_Element__c.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sprint_Element__c.Priority__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sprint_Element__c.Tag__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sprint__c.Main_Objective__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

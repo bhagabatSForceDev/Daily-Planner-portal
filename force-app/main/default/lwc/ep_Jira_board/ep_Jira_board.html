@@ -1,0 +1,60 @@
+<template>
+<div class="slds-grid slds-wrap">
+    <div class="sprint-box slds-col slds-size_4-of-6">
+        <div class="sprint-name">{jiraName}</div><!--button onclick={handleRefresh}>Refresh</button-->
+        <div class="drop-align">
+        <lightning-button-menu alternative-text="Show menu" icon-size="xx-small" menu-alignment="Right">
+        <!--lightning-menu-item value="MenuItemOne" label="Menu Item One"></lightning-menu-item>
+        <lightning-menu-item value="MenuItemTwo" label="Menu Item Two"></lightning-menu-item>
+        <lightning-menu-item value="MenuItemThree" label="Menu Item Three"></lightning-menu-item>
+        <lightning-menu-item value="MenuItemFour" label="Menu Item Four"></lightning-menu-item-->
+        <template for:each={optionList} for:item="menuItem">
+            <lightning-menu-item key={menuItem.Id} value={menuItem.Id} label={menuItem.Name}></lightning-menu-item> 
+        </template>    
+        <lightning-menu-item value="Add" label="Add"></lightning-menu-item>
+    </lightning-button-menu>
+</div>
+    </div>
+    <div class="days-rem slds-col slds-size_1-of-6">
+        {daysRem} Days remaining
+    </div>
+</div>
+<div class="slds-grid slds-wrap">  
+    <div class="slds-col slds-size_2-of-12 element-card">TO DO
+        <div class="slds-grid slds-wrap">
+            <template for:each={toDoList} for:item="todoitem">
+            <div key={todoitem.Id} class="slds-col slds-size_12-of-12">
+                <c-ep_-jira-card element={todoitem}></c-ep_-jira-card>
+            </div>
+            
+        </template>
+        <div class="slds-col slds-size_12-of-12 add-icon" onclick={addElemTask}>
+            <lightning-icon icon-name="action:add_relationship" size="small"></lightning-icon>
+        </div>
+        </div>
+    </div>
+    <div class="slds-col slds-size_2-of-12 element-card">IN PROGRESS
+        <div class="slds-grid slds-wrap">
+            <template for:each={inProgList} for:item="todoitem">
+            <div key={todoitem.Id} class="slds-col slds-size_12-of-12">
+                <c-ep_-jira-card element={todoitem}></c-ep_-jira-card>
+            </div>
+        </template>
+        </div>
+    </div>
+    <div class="slds-col slds-size_2-of-12 element-card">COMPLETED
+        <div class="slds-grid slds-wrap">
+            <template for:each={compList} for:item="todoitem">
+            <div key={todoitem.Id} class="slds-col slds-size_12-of-12">
+                <c-ep_-jira-card element={todoitem}></c-ep_-jira-card>
+            </div>
+        </template>
+        </div>
+    </div>
+    <div class="slds-col slds-size_4-of-12 detail-card">DETAILS
+        
+            <c-ep_jira_detail oncloseedit={handleEditClose}></c-ep_jira_detail>
+        
+    </div>
+</div>
+</template>

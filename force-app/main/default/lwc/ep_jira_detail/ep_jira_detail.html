@@ -1,0 +1,50 @@
+<template>
+
+<template if:true={isModalOpen}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container pop-cls">
+
+            <!-- Modal/Popup Box LWC body starts here -->
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+    <lightning-record-edit-form record-id={recordId} object-api-name="Sprint_Element__c" onsuccess={handleSuccess}>
+    <lightning-input-field field-name="Task_Name__c" value={data.Task_Name__c}></lightning-input-field>
+    <lightning-input-field field-name="Status__c" value={data.Status__c}></lightning-input-field>
+    <lightning-input-field field-name="Priority__c" value={data.Priority__c}></lightning-input-field>
+    <lightning-input-field field-name="Sprint__c" value={data.Sprint__c}></lightning-input-field>
+    <lightning-input-field field-name="Description__c" value={data.Description__c}></lightning-input-field>
+    <div class="slds-m-top_medium">
+        <lightning-button class="slds-m-top_small" label="Cancel" onclick={handleClose}></lightning-button>
+        <lightning-button class="slds-m-top_small" type="submit" label="Save Record"></lightning-button>
+    </div>
+    </lightning-record-edit-form>
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+            
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+
+
+
+<template if:true={isData}>
+<div class="container">    
+<div class="slds-grid slds-wrap">
+<div class="name-cls slds-col slds-size_12-of-12">
+{data.Name}:{data.Task_Name__c}
+<div class="btn-grp">
+    <lightning-button-icon icon-name="utility:record_update"  alternative-text="Edit" variant="border-inverse" title="Edit" onclick={handleEdit}></lightning-button-icon>
+    <lightning-button-icon icon-name="utility:delete"  alternative-text="Delete" variant="border-inverse" title="Delete"></lightning-button-icon>
+</div>    
+</div>
+<div class="status-cls slds-col slds-size_6-of-12">Status: {data.Status__c}</div>
+<div class="prior-cls slds-col slds-size_6-of-12">Priority: {data.Priority__c}</div>
+<div class="slds-col slds-size_12-of-12 desc-class">
+DESCRIPTION:
+<lightning-formatted-rich-text value={data.Description__c}></lightning-formatted-rich-text>
+</div>
+</div>
+</div>
+</template>
+
+</template>

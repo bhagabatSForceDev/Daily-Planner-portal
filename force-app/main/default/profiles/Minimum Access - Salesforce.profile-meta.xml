@@ -101,6 +101,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ep_JiraController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ep_RevisionClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1399,6 +1403,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Daily_Task__c.Sprint_Element__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Daily_Task__c.Test_Time__c</field>
         <readable>true</readable>
@@ -1616,6 +1625,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Information__c.Completed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Jira_Comment__c.Comment_Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2869,6 +2883,26 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint_Element__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint_Element__c.Priority__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint_Element__c.Tag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint__c.Main_Objective__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Task.ActivityDate</field>
         <readable>false</readable>
@@ -2976,6 +3010,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>ADD_A_QUESTION</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Add_Element</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>

@@ -101,6 +101,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ep_JiraController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ep_RevisionClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1399,6 +1403,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Daily_Task__c.Sprint_Element__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Daily_Task__c.Test_Time__c</field>
         <readable>true</readable>
@@ -1616,6 +1625,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Information__c.Completed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Jira_Comment__c.Comment_Body__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2870,6 +2884,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Sprint_Element__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint_Element__c.Priority__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint_Element__c.Tag__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Sprint__c.Main_Objective__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.ActivityDate</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2976,6 +3010,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>ADD_A_QUESTION</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Add_Element</flow>
     </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
@@ -3459,6 +3497,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>Jira_Comment__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Lead</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -3846,6 +3893,24 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>Sprint_Element__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Sprint__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>StreamingChannel</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -3996,10 +4061,6 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>standard-ApiAnomalyEventStore</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -4093,10 +4154,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Contract</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-CredentialStuffingEventStore</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -4272,14 +4329,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>standard-ReportAnomalyEventStore</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-ResourceAbsence</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>standard-ReturnOrder</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -4298,14 +4347,6 @@
     <tabVisibilities>
         <tab>standard-ServiceTerritory</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-SessionHijackingEventStore</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-SocialPersona</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>

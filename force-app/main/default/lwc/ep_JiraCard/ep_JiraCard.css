@@ -1,0 +1,93 @@
+.something{
+    
+}
+
+.disp-none{
+    display:block;
+}
+
+.container{
+    background: white;
+    border-radius: 1.5em;
+    box-shadow: -1px 5px black;
+    width: 90%;
+    margin-left: 5%;
+    padding: 0.5em;
+    margin-bottom: 4%;
+    cursor: pointer;
+    font-family: Open Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+}
+
+.drag-elem{
+    border-radius: 1.5em;
+}
+
+.num-cont{
+    color: black;
+    font-weight: 400;
+    
+}
+
+.name-cont{
+    color: #004aad;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.complete-cls{
+    text-decoration: line-through;
+    color: grey !important;
+}
+
+.high-prio{
+    fill: red;
+    box-shadow: 0 0 4px 0px #ea1919;
+    position: relative;
+    width: 1.5em;
+    left: 1em;
+    top: 1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.med-prio{
+    fill: #e69900;
+    box-shadow: 0 0 4px 0 #e69900;
+    position: relative;
+    width: 1.5em;
+    left: 1em;
+    top: 1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.low-prio{
+    fill: rgb(6, 250, 39);
+    box-shadow: 0 0 4px 0px #03f72c;
+    position: relative;
+    width: 1.5em;
+    left: 1em;
+    top: 1em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+@media (max-width: 900px) {
+
+    .disp-none{
+        display:none;
+    }
+
+    .low-mob{
+        border: 2px solid rgb(6, 250, 39);
+    }
+
+    .med-mob{
+        border: 2px solid #e69900;
+    }
+
+    .high-mob{
+        border: 2px solid #ea1919;
+    }
+
+}

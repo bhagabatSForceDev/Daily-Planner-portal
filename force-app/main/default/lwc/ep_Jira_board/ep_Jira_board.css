@@ -1,0 +1,48 @@
+.something{
+
+}
+
+.sprint-box{
+margin: 1.5em;
+padding: 0.5em;
+display: flex;
+}
+
+.sprint-name{
+font-size: 2em;
+padding-right: 0.5em;
+font-weight: 700;
+}
+
+.drop-align{
+margin-top: 0.8em;    
+}
+
+.days-rem{
+margin: 1.5em;
+padding: 0.5em;
+}
+
+.element-card{
+background: #004aad;
+margin: 0.5em;
+padding: 0.5em;
+border-radius: 0.5em;
+text-align: center;
+color: #ffff;
+font-weight: 700;
+}
+
+.add-icon{
+  cursor: pointer;  
+}
+
+.detail-card{
+background:#000000;
+margin: 0.5em;
+padding: 0.5em;
+border-radius: 0.5em;
+text-align: center;
+color: #ffff;
+font-weight: 700;
+}

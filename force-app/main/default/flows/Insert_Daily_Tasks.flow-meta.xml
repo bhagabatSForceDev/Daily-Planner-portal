@@ -50,6 +50,13 @@
         <picklistField>Session__c</picklistField>
         <picklistObject>Daily_Task__c</picklistObject>
     </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>Sprint_set</name>
+        <dataType>String</dataType>
+        <displayField>Task_Name__c</displayField>
+        <object>Sprint_Element__c</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
     <formulas>
         <name>ScheduledDatefromDatetime</name>
         <dataType>Date</dataType>
@@ -270,6 +277,14 @@
                 </inputParameters>
                 <isRequired>false</isRequired>
             </fields>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Sprint_select</name>
+            <choiceReferences>Sprint_set</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Sprint select</fieldText>
+            <fieldType>DropdownBox</fieldType>
             <isRequired>false</isRequired>
         </fields>
         <fields>

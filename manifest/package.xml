@@ -65,6 +65,7 @@
 		<members>Daily_Task__c.Scheduled_Date__c</members>
 		<members>Daily_Task__c.Scheduled_Time__c</members>
 		<members>Daily_Task__c.Session__c</members>
+		<members>Daily_Task__c.Sprint_Element__c</members>
 		<members>Daily_Task__c.Subject__c</members>
 		<members>Daily_Task__c.Test_Time__c</members>
 		<members>Daily_Task__c.Value__c</members>
@@ -77,6 +78,8 @@
 		<members>Information__c.Completed__c</members>
 		<members>Information__c.Subject__c</members>
 		<members>Information__c.Type__c</members>
+		<members>Jira_Comment__c.Comment_Body__c</members>
+		<members>Jira_Comment__c.Sprint_Element__c</members>
 		<members>Lead.CurrentGenerators__c</members>
 		<members>Lead.NumberofLocations__c</members>
 		<members>Lead.Primary__c</members>
@@ -101,6 +104,15 @@
 		<members>Revision__c.Question__c</members>
 		<members>Revision__c.Reference__c</members>
 		<members>Revision__c.Scheduled_Date__c</members>
+		<members>Sprint_Element__c.Description__c</members>
+		<members>Sprint_Element__c.Priority__c</members>
+		<members>Sprint_Element__c.Sprint__c</members>
+		<members>Sprint_Element__c.Status__c</members>
+		<members>Sprint_Element__c.Tag__c</members>
+		<members>Sprint_Element__c.Task_Name__c</members>
+		<members>Sprint__c.Main_Objective__c</members>
+		<members>Sprint__c.Sprint_Date__c</members>
+		<members>Sprint__c.Tags__c</members>
 		<members>Weekly__c.Category__c</members>
 		<members>Weekly__c.Value__c</members>
 		<name>CustomField</name>
@@ -189,6 +201,7 @@
 		<members>Information__c</members>
 		<members>Invoice</members>
 		<members>InvoiceLine</members>
+		<members>Jira_Comment__c</members>
 		<members>Lead</members>
 		<members>LeadCleanInfo</members>
 		<members>LearningAssignment</members>
@@ -275,6 +288,8 @@
 		<members>SkillRequirement</members>
 		<members>SocialPersona</members>
 		<members>Solution</members>
+		<members>Sprint_Element__c</members>
+		<members>Sprint__c</members>
 		<members>StreamActivityAccess</members>
 		<members>StreamingChannel</members>
 		<members>Task</members>
