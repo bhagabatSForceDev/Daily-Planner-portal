@@ -34,7 +34,7 @@
 {data.Name}:{data.Task_Name__c}
 <div class="btn-grp">
     <lightning-button-icon icon-name="utility:record_update"  alternative-text="Edit" variant="border-inverse" title="Edit" onclick={handleEdit}></lightning-button-icon>
-    <lightning-button-icon icon-name="utility:delete"  alternative-text="Delete" variant="border-inverse" title="Delete"></lightning-button-icon>
+    <lightning-button-icon icon-name="utility:delete"  alternative-text="Delete" variant="border-inverse" title="Delete" onclick={handleDelete}></lightning-button-icon>
 </div>    
 </div>
 <div class="status-cls slds-col slds-size_6-of-12">Status: {data.Status__c}</div>
@@ -43,6 +43,36 @@
 DESCRIPTION:
 <lightning-formatted-rich-text value={data.Description__c}></lightning-formatted-rich-text>
 </div>
+
+<template if:true={isComment}>
+<div class="comm-class slds-col slds-size_12-of-12">
+    <div style="text-align: center">COMMENTS</div>
+    <div class="comm-body">
+    <template for:each={comments} for:item="comm">
+        <div key={comm.Id} class="date-cls">{comm.Mod_Date__c}</div>
+        <lightning-formatted-rich-text key={comm.Id} value={comm.Comment_Body__c}></lightning-formatted-rich-text>
+    </template>
+</div>
+</div>
+</template>
+<div class="comm-class slds-col slds-size_12-of-12">
+    <div class="add-comment-cls" onclick={addComment}>
+    <lightning-icon icon-name="action:follow" size="small"></lightning-icon>
+</div>
+</div>
+<!--
+<div class="comm-class slds-col slds-size_9-of-12">
+    <lightning-input-rich-text
+        label="Input comment"
+        onchange={handleCommentChange}
+        value={commValue}
+        formats={formats}>
+    </lightning-input-rich-text>
+</div>
+<div class="comm-class slds-col slds-size_2-of-12">
+    <lightning-button label="Add" variant="brand"></lightning-button>
+</div>
+-->
 </div>
 </div>
 </template>

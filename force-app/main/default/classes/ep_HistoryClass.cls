@@ -1,4 +1,4 @@
-public with sharing class ep_HistoryClass {
+public without sharing class ep_HistoryClass {
     
     public class InfoCls{
         @AuraEnabled public String Id;
@@ -64,12 +64,18 @@ public with sharing class ep_HistoryClass {
     
     
  @AuraEnabled(cacheable=true)
-    public static List<Daily_Task__c> getDailyTasks(){
+    public static List<Daily_Task__c> getDailyTasks(Date d){
      
     List<Daily_Task__c> taskList= new List<Daily_Task__c>();    
-    
-    taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() OR isRecurring__c=true];
-        
+    if(d){
+        taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: d];
+     
+    }
+    else{
+        taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() OR isRecurring__c=true];
+     
+    }
+       
     return taskList;    
     }
     

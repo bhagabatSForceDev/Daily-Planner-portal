@@ -96,4 +96,10 @@ export default class Ep_Jira_board extends LightningElement {
         console.log('THE MESSAGE'+JSON.stringify(message));
         this.handleRefresh();
     }
+
+    handleSprintSelect(event){
+        this.jiraId=event.target.value;
+        console.log("IN SPRINT SELECT: "+event.target.value);
+        this.handleEditClose();
+    }
 }

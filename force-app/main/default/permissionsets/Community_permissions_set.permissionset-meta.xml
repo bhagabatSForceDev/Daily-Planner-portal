@@ -1517,6 +1517,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Jira_Comment__c.Mod_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead.Address</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2768,6 +2773,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Sprint_Element__c.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sprint_Element__c.Label_Choices__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

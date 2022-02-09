@@ -2,7 +2,9 @@
 <template if:true={modalOpen}>
   <c-ep_edit-modal onclose={handleClose} this-id={editId}></c-ep_edit-modal>
 </template>
+
   <div id="container" class="container m1">
+    <c-ep_date-selector ondatechanged={handleDateChange}></c-ep_date-selector>
     <div class="btn-panel slds-grid">
       <button class="change-btn-cls slds-col" onclick={handleSession} value="Add">
         <div class="icon-cls-pad">

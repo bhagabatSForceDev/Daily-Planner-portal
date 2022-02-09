@@ -1,7 +1,9 @@
 <aura:component description="LightningFlow" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
 <aura:attribute name="messageRec" type="Boolean" default="false"></aura:attribute>
 <aura:attribute name="isTaskFlow" type="Boolean" default="false"></aura:attribute>
-<aura:attribute name="isElementFlow" type="Boolean" default="false"></aura:attribute>    
+<aura:attribute name="isElementFlow" type="Boolean" default="false"></aura:attribute>
+<aura:attribute name="isCommentFlow" type="Boolean" default="false"></aura:attribute>
+<aura:attribute name="passId" type="String"></aura:attribute>    
     
 <lightning:messageChannel
     type="popMessageChannel__c"
@@ -29,7 +31,10 @@
                         </aura:if>
                         <aura:if isTrue="{!v.isElementFlow}">
                         <c:ep_elemFlowCaller></c:ep_elemFlowCaller>
-                        </aura:if>    
+                        </aura:if>
+                        <aura:if isTrue="{!v.isCommentFlow}">
+                        <c:ep_commFlowCaller passedId="{!v.passId}"></c:ep_commFlowCaller>    
+                        </aura:if>
                     </div>
                     
                 </div>

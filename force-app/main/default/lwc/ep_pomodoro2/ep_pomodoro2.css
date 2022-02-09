@@ -1,0 +1,7 @@
+.cursor-cls{
+    cursor: pointer;
+}
+
+.slds-docked-composer.slds-is-open{
+    height: 13rem;
+}

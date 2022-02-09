@@ -9,9 +9,10 @@ export default class Ep_Revision_coll extends LightningElement {
 @track revInput='';
 @track revList;
 @track index;
+@track param='Today';
 
 wiredProperty;
-@wire(getRevisionQs) revisionQues(result){
+@wire(getRevisionQs,{count: '$param'}) revisionQues(result){
     this.wiredProperty=result;
     this.revList=[];
     this.index=0;
@@ -71,6 +72,17 @@ handleRef(e){
         this.handleSearch(e);
     }
     
+}
+
+handleAll(e){
+    if(this.param!='All'){
+    this.param='All';
+    refreshApex(this.wiredProperty);
+}
+    else{
+      this.param='Today';
+      refreshApex(this.wiredProperty);
+    }
 }
 
 }

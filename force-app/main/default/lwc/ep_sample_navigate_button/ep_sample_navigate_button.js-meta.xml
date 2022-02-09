@@ -10,4 +10,11 @@
         <target>lightningCommunity__Page</target>
         <target>lightningCommunity__Default</target>
     </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+        <property name="homelink" type="String" label="Enter the Homelink" default="/admin/s"/>
+        <property name="jiralink" type="String" label="Enter the JiraLink"  default="/admin/jira-page"/>
+        <property name="revisionlink" type="String" label="Enter the RevisionLink" default="/admin/revision-page"/>
+        </targetConfig>
+        </targetConfigs>
 </LightningComponentBundle>

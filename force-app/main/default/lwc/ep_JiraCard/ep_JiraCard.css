@@ -9,7 +9,7 @@
 .container{
     background: white;
     border-radius: 1.5em;
-    box-shadow: -1px 5px black;
+    box-shadow: -5px 4px 4px 1px #00000094;
     width: 90%;
     margin-left: 5%;
     padding: 0.5em;
@@ -24,14 +24,17 @@
 
 .num-cont{
     color: black;
-    font-weight: 400;
+    font-weight: 700;
+    max-width: 90%;
     
 }
 
 .name-cont{
-    color: #004aad;
+    color: #ffff;
     font-weight: 500;
     font-size: 1.2em;
+    text-shadow: -1px 1px 2px black;
+    max-width: 90%;
 }
 
 .complete-cls{
@@ -40,7 +43,7 @@
 }
 
 .high-prio{
-    fill: red;
+    fill: #ea1919;
     box-shadow: 0 0 4px 0px #ea1919;
     position: relative;
     width: 1.5em;
@@ -48,6 +51,9 @@
     top: 1em;
     padding-left: 0.2em;
     padding-right: 0.2em;
+    outline: 0.1em solid #ea1919;
+    outline-offset: -1px;
+    outline-style: ridge;
 }
 
 .med-prio{
@@ -59,6 +65,9 @@
     top: 1em;
     padding-left: 0.2em;
     padding-right: 0.2em;
+    outline: 0.1em solid #e69900;
+    outline-offset: -1px;
+    outline-style: ridge;
 }
 
 .low-prio{
@@ -70,7 +79,31 @@
     top: 1em;
     padding-left: 0.2em;
     padding-right: 0.2em;
+    outline: 0.1em solid #03f72c;
+    outline-offset: -1px;
+    outline-style: ridge;
 }
+
+.offfset-icon{
+    margin-top: -3px;
+}
+
+.low-mob{
+    background: linear-gradient(90deg,#009688, #3bd541);
+    border: 2px solid black;
+}
+
+.med-mob{
+    background: linear-gradient(90deg,#ffdb07, #ffeb3b);
+    border: 2px solid black;
+    
+}
+
+.high-mob{
+    background: linear-gradient(90deg, #c90707, #fd9e4d);
+    border: 2px solid black;
+}
+
 
 @media (max-width: 900px) {
 
@@ -78,16 +111,5 @@
         display:none;
     }
 
-    .low-mob{
-        border: 2px solid rgb(6, 250, 39);
-    }
-
-    .med-mob{
-        border: 2px solid #e69900;
-    }
-
-    .high-mob{
-        border: 2px solid #ea1919;
-    }
 
 }

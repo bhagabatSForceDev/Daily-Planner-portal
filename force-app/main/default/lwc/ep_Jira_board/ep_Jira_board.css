@@ -31,6 +31,7 @@ border-radius: 0.5em;
 text-align: center;
 color: #ffff;
 font-weight: 700;
+box-shadow: -5px 9px 4px 0px #00000047;
 }
 
 .add-icon{

@@ -50,7 +50,7 @@ renderedCallback(){
   switch(this.sampObject.Session__c){
   case "Morning":
   console.log(' TIME: '+currTime);
-  if(currTime>=12 && !this.sampObject.Completed__c){
+  if(currTime>=12 && current>=this.sampObject.Date__c && !this.sampObject.Completed__c){
     this.btnText='OVERDUE';
     this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.backgroundColor='Red';
     this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.color='#fff';
@@ -68,7 +68,7 @@ renderedCallback(){
   this.template.querySelector('.last-container').classList.add('morning-cls');
   break;
   case "Afternoon":
-    if(currTime>=18 && !this.sampObject.Completed__c){
+    if(currTime>=18 && current>=this.sampObject.Date__c &&  !this.sampObject.Completed__c){
       this.btnText='OVERDUE';
       this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.backgroundColor='Red';
       this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.color='#fff';
@@ -87,7 +87,13 @@ renderedCallback(){
   this.template.querySelector('.last-container').classList.add('afternoon-cls');
   break;
   case "Night":
-    if(this.sampObject.Completed__c){
+    if(current>=this.sampObject.Date__c){
+      this.btnText='OVERDUE';
+      this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.backgroundColor='Red';
+      this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.color='#fff';
+      this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.textShadow="-1px 1px 2px black";
+    }
+    else if(this.sampObject.Completed__c){
       this.btnText='COMPLETED';
       this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.backgroundColor='#61e90c';
       this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.color='#fff';

@@ -10,6 +10,11 @@
         </value>
     </choices>
     <choices>
+        <name>None_choice</name>
+        <choiceText>-- None --</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <choices>
         <name>Yes</name>
         <choiceText>Yes</choiceText>
         <dataType>String</dataType>
@@ -42,6 +47,28 @@
             <label>Yes Decision</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Link_to_comment</name>
+        <label>Link to comment</label>
+        <locationX>401</locationX>
+        <locationY>617</locationY>
+        <defaultConnector>
+            <targetReference>Create_a_comment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>Link_No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Sprint_select</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Add_another_record_screen</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
     <dynamicChoiceSets>
         <name>Session_List</name>
         <dataType>Picklist</dataType>
@@ -53,7 +80,7 @@
     <dynamicChoiceSets>
         <name>Sprint_set</name>
         <dataType>String</dataType>
-        <displayField>Task_Name__c</displayField>
+        <displayField>Label_Choices__c</displayField>
         <object>Sprint_Element__c</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
@@ -84,12 +111,35 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <recordCreates>
-        <name>Create_Task_Records</name>
-        <label>Create Task Records</label>
-        <locationX>415</locationX>
-        <locationY>502</locationY>
+        <name>Create_a_comment</name>
+        <label>Create a comment</label>
+        <locationX>642</locationX>
+        <locationY>615</locationY>
         <connector>
             <targetReference>Add_another_record_screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Comment_Body__c</field>
+            <value>
+                <elementReference>Comment_body</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sprint_Element__c</field>
+            <value>
+                <elementReference>Sprint_select</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Jira_Comment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Task_Records</name>
+        <label>Create Task Records</label>
+        <locationX>413</locationX>
+        <locationY>452</locationY>
+        <connector>
+            <targetReference>Link_to_comment</targetReference>
         </connector>
         <inputAssignments>
             <field>Description__c</field>
@@ -145,8 +195,8 @@
     <screens>
         <name>Add_another_record_screen</name>
         <label>Add another record screen</label>
-        <locationX>583</locationX>
-        <locationY>597</locationY>
+        <locationX>641</locationX>
+        <locationY>458</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -282,7 +332,9 @@
         <fields>
             <name>Sprint_select</name>
             <choiceReferences>Sprint_set</choiceReferences>
+            <choiceReferences>None_choice</choiceReferences>
             <dataType>String</dataType>
+            <defaultSelectedChoiceReference>None_choice</defaultSelectedChoiceReference>
             <fieldText>Sprint select</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>false</isRequired>
@@ -354,4 +406,9 @@
         </connector>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>Comment_body</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(13, 157, 9);&quot;&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;&lt;/span&gt;&lt;b style=&quot;color: rgb(28, 160, 8);&quot;&gt;&lt;i&gt;-- A task has been created --&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name:&lt;/b&gt; {!Subject}&lt;/p&gt;</text>
+    </textTemplates>
 </Flow>

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-    
+        <lightning-button variant="brand" label={param} title="All" onclick={handleAll} class="slds-m-left_x-small"></lightning-button>
         <template for:each={revList} for:item="rev">
           <div class="question-block" key={rev}> {rev.str} 
               <lightning-button-icon icon-name="utility:world" size="xx-small" variant="brand" label="Search" value={rev.str} onclick={handleSearch}></lightning-button-icon>

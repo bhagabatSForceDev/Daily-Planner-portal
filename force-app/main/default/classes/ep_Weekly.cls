@@ -1,4 +1,4 @@
-public class ep_Weekly {
+public without sharing class ep_Weekly {
 
     @AuraEnabled(cacheable=true)
     public static List<Weekly__c> weekList(){

@@ -24,6 +24,7 @@ imgPath='morning'+this.imgIndex+'.jpg';
 @track imgIndex=Math.ceil(3*Math.random());
 @track modalOpen=false;
 @track editId;
+@track dateSel=null;
 
 renderedCallback(){   
 
@@ -61,8 +62,14 @@ renderedCallback(){
 @wire(MessageContext) messageContext;
 
 wiredProperty;
-@wire(getDailyTasks) getAllTasks(result){  
+@wire(getDailyTasks, {d: '$dateSel'}) getAllTasks(result){  
     this.wiredProperty=result;
+    this.morningTaskList=[];
+    this.afternoonTaskList=[];
+    this.nightTaskList=[];
+    this.noAfternoon=true;
+    this.noMorning=true;
+    this.noNight=true;
     var current=new Date();
     var currTime=current.getHours();    
     
@@ -92,6 +99,7 @@ wiredProperty;
 if(result.data){  
 
 let tList=result.data;
+this.currentVal=0;
 this.totalVal=0;
 for(let i=0;i<tList.length;i++){
     console.log("LENGTH="+i);
@@ -208,6 +216,12 @@ this.modalOpen=true;
 
 handleClose(e){
     this.modalOpen=false;  
+}
+
+
+handleDateChange(e){
+console.log('DATE CHANGE'+JSON.stringify(e));
+this.dateSel=e.detail;
 }
 
 

@@ -1633,6 +1633,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Jira_Comment__c.Mod_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Address</field>
         <readable>true</readable>
@@ -2889,6 +2894,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Sprint_Element__c.Label_Choices__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Sprint_Element__c.Priority__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3022,6 +3032,10 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Insert_Daily_Tasks</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>Jira_Comment_Flow</flow>
     </flowAccesses>
     <pageAccesses>
         <apexPage>AnswersHome</apexPage>

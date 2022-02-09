@@ -27,6 +27,18 @@ public without sharing class ep_JiraController {
         }
         return retWrap;
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Jira_Comment__c> getComments(String recId){
+        List<Jira_Comment__c> commList= [SELECT Id, Sprint_Element__c,Comment_Body__c,Mod_Date__c FROM Jira_Comment__c WHERE Sprint_Element__c= :recId ORDER BY Mod_Date__c DESC];
+        return commList;
+    }
+
+    @AuraEnabled
+    public static void deleteElement(String recId){
+        Sprint_Element__c el=[SELECT Id FROM Sprint_Element__c WHERE Id=: recId];
+        delete el;
+    }
     
     
     public class jiraWrap{

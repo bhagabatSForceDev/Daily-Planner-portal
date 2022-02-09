@@ -1,0 +1,64 @@
+<template>
+    <!--
+
+        1. We need an input box to enter time for pomodoro in minutes and break time and sessions
+        2. Upon entering and starting the box and button need to be disabled/ hidden
+        3. A stop pomodor button should appear
+
+        Note: Use steInterval instead of setTimeout... Lets see
+
+
+
+
+
+
+    -->
+    <div class="slds-docked_container">
+        <section class="slds-docked-composer slds-grid slds-grid_vertical"  role="dialog" aria-labelledby="dialog-heading-id-1" aria-describedby="dialog-content-id-1">
+        <header class="slds-docked-composer__header slds-grid slds-shrink-none" aria-live="assertive">
+        <div class="slds-media slds-media_center slds-no-space">
+        <div class="slds-media__figure slds-m-right_x-small">
+        <span class="slds-icon_container">
+        <lightning-icon icon-name="standard:today" size="x-small"></lightning-icon>
+        </span>
+        </div>
+        <div class="slds-media__body cursor-cls" onclick={handleMinimize}>
+        <h2 class="slds-truncate" id="dialog-heading-id-1" title="Header">Pomodoro</h2>
+        </div>
+        </div>
+        <div class="slds-col_bump-left slds-shrink-none">
+        <lightning-icon class="cursor-cls" icon-name={iconName} size="xx-small" onclick={handleMinimize}></lightning-icon>
+        
+        </div>
+        </header>
+        <div class="slds-docked-composer__body" id="dialog-content-id-1">
+        <div class="slds-align_absolute-center">
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-m-left_medium slds-size_5-of-12">
+                    <lightning-input type="Number" value="0" required="true" label="Enter session time in minutes"></lightning-input> 
+                </div>
+                <div class="slds-col slds-m-left_medium slds-size_5-of-12">
+                    <lightning-input type="Number" value="0" required="true" label="Enter break time in minutes"></lightning-input>
+                </div>
+                <div class="slds-col slds-m-left_medium slds-size_5-of-12">
+                    <lightning-input type="Number" value="0" required="true" label="Enter number of sessions"></lightning-input>
+                </div>
+                <div class="slds-col_bump-right slds-m-left_medium slds-m-top_medium slds-size_10-of-12 slds-align_absolute-center">
+                    <lightning-button label="Start" variant="Brand" type="Submit"></lightning-button>
+                </div>
+            </div>
+
+
+
+        </div>
+        </div>
+        
+        </section>
+        </div>
+
+
+
+    
+    
+</template>
