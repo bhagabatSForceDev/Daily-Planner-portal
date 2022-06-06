@@ -1,0 +1,32 @@
+<template>
+    <div class="background-cls">
+        <img src={backImage}>
+    <div class="container">
+        <div class="img-block">
+            <img src={backImage}>
+        </div>
+        <div class="input-block">
+
+            <div class="slds-grid grid-block">
+                <div class="user-login-cls slds-col slds-size_3-of-3">
+                    USER LOGIN
+                </div>
+                <div class="slds-col inp-align slds-size_3-of-3">
+                    <input placeholder="Enter Username" onchange={handleNameChange} class="inp-cls" type="text">
+                </div>
+                <div class="slds-col inp-align slds-size_3-of-3">
+                    <input placeholder="Enter Password"  onchange={handlePwdChange} class="inp-cls" type="password">
+                </div>
+                <div class="slds-col login-btn slds-size_3-of-3">
+                    <button class="btn-cls" title="LOGIN" onclick={handleLogin} name="LOGIN">LOGIN</button>
+                </div>
+            </div>
+            <!-- <lightning-input type="text" label="UserName" onchange={handleNameChange}></lightning-input>
+            <lightning-input type="password" label="Password" onchange={handlePwdChange}></lightning-input>
+            <p></p>
+            <lightning-button label="Log In" variant="Brand" onclick={handleLogin}></lightning-button> -->
+        </div>
+   
+</div>
+</div>
+</template>

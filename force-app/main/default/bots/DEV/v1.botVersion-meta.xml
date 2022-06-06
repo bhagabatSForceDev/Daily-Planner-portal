@@ -55,16 +55,16 @@
         <botSteps>
             <botNavigation>
                 <botNavigationLinks>
-                    <label>Today Tasks</label>
                     <targetBotDialog>Today_Tasks</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <label>Revision Questions</label>
                     <targetBotDialog>Revision_Questions</targetBotDialog>
                 </botNavigationLinks>
                 <botNavigationLinks>
-                    <label>Extra Info</label>
                     <targetBotDialog>Extra_Info</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Transfer_To_Agent</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>

@@ -39,7 +39,7 @@ renderedCallback(){
   var currTime=current.getHours();
   
   if(this.sampObject.isRecurring__c){
-    this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.display='none';
+    //this.template.querySelector(`[data-id="${this.sampObject.Id}"]`).style.display='none';
   }
 
   if(this.sampObject.Important__c){

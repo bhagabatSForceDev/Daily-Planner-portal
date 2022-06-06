@@ -16,11 +16,11 @@ public without sharing class ep_HistoryClass {
         List<Daily_Task__c> dList= new List<Daily_Task__c>();
         if(dateSelected==''){
              dList= [SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c
-                                    FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() ORDER BY Session__c];
+                                    FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() OR isRecurring__c= True ORDER BY Session__c];
         }
         else{
              dList= [SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c
-                                    FROM Daily_Task__c WHERE Scheduled_Date__c =: sampDate ORDER BY Session__c];
+                                    FROM Daily_Task__c WHERE Scheduled_Date__c =: sampDate OR isRecurring__c= True ORDER BY Session__c];
         }
         
         List<InfoCls> infList= new List<InfoCls>();
@@ -67,15 +67,14 @@ public without sharing class ep_HistoryClass {
     public static List<Daily_Task__c> getDailyTasks(Date d){
      
     List<Daily_Task__c> taskList= new List<Daily_Task__c>();    
-    if(d){
-        taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: d];
+if(d!=null){
+        taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: d  OR isRecurring__c=true];
      
     }
     else{
         taskList=[SELECT Id,Name,Subject__c,Completed__c,Description__c,Important__c,Scheduled_Time__c,Test_Time__c,newTestTime__c,Scheduled_Date__c,Session__c,Value__c,isRecurring__c FROM Daily_Task__c WHERE Scheduled_Date__c =: Date.today() OR isRecurring__c=true];
      
-    }
-       
+    }   
     return taskList;    
     }
     

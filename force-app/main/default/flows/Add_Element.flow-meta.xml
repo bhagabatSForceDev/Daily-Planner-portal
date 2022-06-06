@@ -67,6 +67,7 @@
         <locationY>196</locationY>
         <inputReference>elem_record</inputReference>
     </recordCreates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <name>Add_Scr</name>
         <label>Add Scr</label>
@@ -85,7 +86,7 @@
         </fields>
         <fields>
             <fieldType>ObjectProvided</fieldType>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
             <objectFieldReference>elem_record.Task_Name__c</objectFieldReference>
         </fields>
         <fields>

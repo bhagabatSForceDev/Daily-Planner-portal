@@ -205,7 +205,7 @@ else if(sess=='Delete'){
 }
 
 handleReport(){
-    window.open("/Admin/s/report-page");
+    window.open("/Admin/s/report-page","_self");
 }
 
 handleEdit(e){

@@ -206,6 +206,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Asset.ConsequenceOfFailure</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Asset.ContactId</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1386,11 +1391,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Goal.OrigGoalId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>History__c.Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2007,11 +2007,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>MessagingSession.OpportunityId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Metric.OrigMetricId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2782,6 +2777,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Sprint_Element__c.Label_Choices__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sprint_Element__c.Parent_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

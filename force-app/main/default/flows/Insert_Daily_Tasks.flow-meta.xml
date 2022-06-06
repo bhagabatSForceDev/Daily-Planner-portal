@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <apiVersion>51.0</apiVersion>
+    <assignments>
+        <name>Assign_Curr_Date</name>
+        <label>Assign Curr Date</label>
+        <locationX>274</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>curr_date</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Range_Start</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>curr_date_time</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Scheduled_Date_and_Time</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>End_Reached</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Increment_Date</name>
+        <label>Increment Date</label>
+        <locationX>50</locationX>
+        <locationY>176</locationY>
+        <assignmentItems>
+            <assignToReference>curr_date</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>End_Reached</targetReference>
+        </connector>
+    </assignments>
     <choices>
         <name>No</name>
         <choiceText>No</choiceText>
@@ -13,6 +52,9 @@
         <name>None_choice</name>
         <choiceText>-- None --</choiceText>
         <dataType>String</dataType>
+        <value>
+            <stringValue>none</stringValue>
+        </value>
     </choices>
     <choices>
         <name>Yes</name>
@@ -25,8 +67,8 @@
     <decisions>
         <name>Add_task_decision</name>
         <label>Add task decision</label>
-        <locationX>808</locationX>
-        <locationY>338</locationY>
+        <locationX>1065</locationX>
+        <locationY>354</locationY>
         <defaultConnector>
             <targetReference>Thank_You</targetReference>
         </defaultConnector>
@@ -48,10 +90,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>End_Reached</name>
+        <label>End Reached</label>
+        <locationX>475</locationX>
+        <locationY>179</locationY>
+        <defaultConnector>
+            <targetReference>Create_Multiple_Tasks</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Reached</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>curr_date</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>Range_End</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_another_record_screen</targetReference>
+            </connector>
+            <label>Reached</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Link_to_comment</name>
         <label>Link to comment</label>
-        <locationX>401</locationX>
-        <locationY>617</locationY>
+        <locationX>641</locationX>
+        <locationY>678</locationY>
         <defaultConnector>
             <targetReference>Create_a_comment</targetReference>
         </defaultConnector>
@@ -62,11 +129,39 @@
             <conditions>
                 <leftValueReference>Sprint_select</leftValueReference>
                 <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>none</stringValue>
+                </rightValue>
             </conditions>
             <connector>
                 <targetReference>Add_another_record_screen</targetReference>
             </connector>
             <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Recurr_Decision</name>
+        <label>Recurr Decision</label>
+        <locationX>465</locationX>
+        <locationY>398</locationY>
+        <defaultConnector>
+            <targetReference>Create_Task_Records</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>recurr_dec</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Recurring</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Curr_Date</targetReference>
+            </connector>
+            <label>Recurring</label>
         </rules>
     </decisions>
     <dynamicChoiceSets>
@@ -81,13 +176,36 @@
         <name>Sprint_set</name>
         <dataType>String</dataType>
         <displayField>Label_Choices__c</displayField>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Parent_Date__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
         <object>Sprint_Element__c</object>
         <valueField>Id</valueField>
     </dynamicChoiceSets>
     <formulas>
+        <name>DefaultDateInp</name>
+        <dataType>Date</dataType>
+        <expression>IF({!$Flow.CurrentDateTime}&gt;{!test_time},{!$Flow.CurrentDate}+1,{!$Flow.CurrentDate})</expression>
+    </formulas>
+    <formulas>
         <name>ScheduledDatefromDatetime</name>
         <dataType>Date</dataType>
         <expression>IF({!Reminder}, DATEVALUE({!Scheduled_Date_and_Time}), {!Scheduled_Date})</expression>
+    </formulas>
+    <formulas>
+        <name>test_time</name>
+        <dataType>DateTime</dataType>
+        <expression>DATETIMEVALUE(TEXT({!$Flow.CurrentDate})+&quot; &quot;+&quot;12:30:00&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
     </formulas>
     <interviewLabel>Insert Daily Tasks {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Insert Daily Tasks</label>
@@ -113,8 +231,8 @@
     <recordCreates>
         <name>Create_a_comment</name>
         <label>Create a comment</label>
-        <locationX>642</locationX>
-        <locationY>615</locationY>
+        <locationX>882</locationX>
+        <locationY>676</locationY>
         <connector>
             <targetReference>Add_another_record_screen</targetReference>
         </connector>
@@ -134,10 +252,63 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
+        <name>Create_Multiple_Tasks</name>
+        <label>Create Multiple Tasks</label>
+        <locationX>174</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Increment_Date</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Description__c</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Important__c</field>
+            <value>
+                <elementReference>Reminder</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Scheduled_Date__c</field>
+            <value>
+                <elementReference>curr_date</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Scheduled_Time__c</field>
+            <value>
+                <elementReference>curr_date_time</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Session__c</field>
+            <value>
+                <elementReference>Session</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject__c</field>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Value__c</field>
+            <value>
+                <elementReference>Value</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Daily_Task__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <name>Create_Task_Records</name>
         <label>Create Task Records</label>
-        <locationX>413</locationX>
-        <locationY>452</locationY>
+        <locationX>653</locationX>
+        <locationY>519</locationY>
         <connector>
             <targetReference>Link_to_comment</targetReference>
         </connector>
@@ -186,7 +357,7 @@
         <inputAssignments>
             <field>isRecurring__c</field>
             <value>
-                <elementReference>Recurring</elementReference>
+                <elementReference>One_Time</elementReference>
             </value>
         </inputAssignments>
         <object>Daily_Task__c</object>
@@ -195,8 +366,8 @@
     <screens>
         <name>Add_another_record_screen</name>
         <label>Add another record screen</label>
-        <locationX>641</locationX>
-        <locationY>458</locationY>
+        <locationX>881</locationX>
+        <locationY>519</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -219,8 +390,8 @@
     <screens>
         <name>Daily_Tasks_Intro_Screen</name>
         <label>Daily Tasks Intro Screen</label>
-        <locationX>584</locationX>
-        <locationY>206</locationY>
+        <locationX>824</locationX>
+        <locationY>267</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -246,13 +417,13 @@
     <screens>
         <name>Input_Screen_for_Daily_Tasks</name>
         <label>Input Screen for Daily Tasks</label>
-        <locationX>415</locationX>
-        <locationY>292</locationY>
+        <locationX>655</locationX>
+        <locationY>353</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>Create_Task_Records</targetReference>
+            <targetReference>Recurr_Decision</targetReference>
         </connector>
         <fields>
             <name>Subject</name>
@@ -280,6 +451,23 @@
                     <fieldText>Recurring</fieldText>
                     <fieldType>InputField</fieldType>
                     <isRequired>true</isRequired>
+                </fields>
+                <fields>
+                    <name>One_Time</name>
+                    <dataType>Boolean</dataType>
+                    <fieldText>One Time</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>Recurring</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <booleanValue>false</booleanValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -338,6 +526,70 @@
             <fieldText>Sprint select</fieldText>
             <fieldType>DropdownBox</fieldType>
             <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Recurring</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>Input_Screen_for_Daily_Tasks_Section2</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Input_Screen_for_Daily_Tasks_Section2_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Range_Start</name>
+                    <dataType>Date</dataType>
+                    <defaultValue>
+                        <elementReference>Today</elementReference>
+                    </defaultValue>
+                    <fieldText>Start Date</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Input_Screen_for_Daily_Tasks_Section2_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Range_End</name>
+                    <dataType>Date</dataType>
+                    <fieldText>End Date</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <isRequired>true</isRequired>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>Recurring</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <fields>
             <name>Scheduled_Date_and_Time</name>
@@ -359,6 +611,9 @@
         <fields>
             <name>Scheduled_Date</name>
             <dataType>Date</dataType>
+            <defaultValue>
+                <elementReference>DefaultDateInp</elementReference>
+            </defaultValue>
             <fieldText>Scheduled Date</fieldText>
             <fieldType>InputField</fieldType>
             <isRequired>true</isRequired>
@@ -366,6 +621,13 @@
                 <conditionLogic>and</conditionLogic>
                 <conditions>
                     <leftValueReference>Reminder</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <booleanValue>false</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Recurring</leftValueReference>
                     <operator>EqualTo</operator>
                     <rightValue>
                         <booleanValue>false</booleanValue>
@@ -385,8 +647,8 @@
     <screens>
         <name>Thank_You</name>
         <label>Thank You</label>
-        <locationX>823</locationX>
-        <locationY>477</locationY>
+        <locationX>1063</locationX>
+        <locationY>538</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -399,8 +661,8 @@
         <showHeader>false</showHeader>
     </screens>
     <start>
-        <locationX>458</locationX>
-        <locationY>48</locationY>
+        <locationX>985</locationX>
+        <locationY>93</locationY>
         <connector>
             <targetReference>Daily_Tasks_Intro_Screen</targetReference>
         </connector>
@@ -409,6 +671,20 @@
     <textTemplates>
         <name>Comment_body</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(13, 157, 9);&quot;&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;&lt;/span&gt;&lt;b style=&quot;color: rgb(28, 160, 8);&quot;&gt;&lt;i&gt;-- A task has been created --&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name:&lt;/b&gt; {!Subject}&lt;/p&gt;</text>
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(13, 157, 9);&quot;&gt;﻿&lt;/span&gt;&lt;b style=&quot;color: rgb(28, 160, 8);&quot;&gt;&lt;i&gt;-- A task has been created --&lt;/i&gt;&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name:&lt;/b&gt; {!Subject}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: {!Description}&lt;/p&gt;</text>
     </textTemplates>
+    <variables>
+        <name>curr_date</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>curr_date_time</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
 </Flow>

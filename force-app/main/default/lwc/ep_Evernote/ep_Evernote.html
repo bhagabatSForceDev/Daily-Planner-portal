@@ -1,0 +1,8 @@
+<template>
+    <lightning-input type="text" value={texVal} label="Topic"></lightning-input>
+    <lightning-input-rich-text
+        placeholder="Type something interesting"
+        formats={allowedFormats} value={rtextVal}></lightning-input-rich-text>
+
+     <lightning-button label="Send" variant="brand" onclick={handleSend}></lightning-button>   
+</template>
