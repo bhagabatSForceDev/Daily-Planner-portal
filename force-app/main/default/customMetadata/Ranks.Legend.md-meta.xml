@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Legend</label>
+    <protected>false</protected>
+    <values>
+        <field>Label__c</field>
+        <value xsi:type="xsd:string">Legend</value>
+    </values>
+    <values>
+        <field>Message__c</field>
+        <value xsi:type="xsd:string">Destiny. Fate. Dreams. These unstoppable ideas are held deep in the heart of man. As long as there are people who seek freedom in this life, these things shall not vanish from the Earth.</value>
+    </values>
+    <values>
+        <field>Score__c</field>
+        <value xsi:type="xsd:double">5.0</value>
+    </values>
+    <values>
+        <field>Url__c</field>
+        <value xsi:type="xsd:string">/Admin/resource/1654671731000/Badge_Images/Badges/Lvl5.png</value>
+    </values>
+</CustomMetadata>

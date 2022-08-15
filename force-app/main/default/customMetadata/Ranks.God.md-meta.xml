@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>God</label>
+    <protected>false</protected>
+    <values>
+        <field>Label__c</field>
+        <value xsi:type="xsd:string">God</value>
+    </values>
+    <values>
+        <field>Message__c</field>
+        <value xsi:type="xsd:string">It’s easier to crush a dream than realize one. Forming a bond is infinitely more difficult than breaking one.
+Don’t worry about what other people think. Hold your head up high and plunge forward.</value>
+    </values>
+    <values>
+        <field>Score__c</field>
+        <value xsi:type="xsd:double">10.0</value>
+    </values>
+    <values>
+        <field>Url__c</field>
+        <value xsi:type="xsd:string">/Admin/resource/1654671731000/Badge_Images/Badges/Lvl10.png</value>
+    </values>
+</CustomMetadata>

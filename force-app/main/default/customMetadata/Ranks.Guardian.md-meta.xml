@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Guardian</label>
+    <protected>false</protected>
+    <values>
+        <field>Label__c</field>
+        <value xsi:type="xsd:string">Guardian</value>
+    </values>
+    <values>
+        <field>Message__c</field>
+        <value xsi:type="xsd:string">Every one of us must do what’s in their power! If we’re going to die anyway, then it’s better to die fighting than to do nothing!</value>
+    </values>
+    <values>
+        <field>Score__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Url__c</field>
+        <value xsi:type="xsd:string">/Admin/resource/1654671731000/Badge_Images/Badges/Lvl2.png</value>
+    </values>
+</CustomMetadata>

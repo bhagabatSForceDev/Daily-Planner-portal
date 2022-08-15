@@ -1,0 +1,103 @@
+.img-container{
+    border-radius: 6rem;
+    overflow: hidden;
+    background: radial-gradient(#06182b 37%, transparent 50%,#052e51 59%);
+    border: 2px solid #aa6706;
+    animation: animate 1s ease-in-out infinite;
+}
+
+@keyframes animate{
+    0%{
+        background: radial-gradient(#06182b 35%, transparent 50%,#052e51 60%);  
+    }
+    10%{
+        background: radial-gradient(#06182b 28%, transparent 50%,#052e51 68%);
+    }
+    20%{
+        background: radial-gradient(#06182b 21%, transparent 50%,#052e51 76%);
+    }
+    30%{
+        background: radial-gradient(#06182b 14%, transparent 50%,#052e51 84%);
+    }
+    40%{
+        background: radial-gradient(#06182b 7%, transparent 50%,#052e51 92%);
+    }
+    50%{
+        background: radial-gradient(#06182b 0%, transparent 50%,#052e51 100%);
+    }
+    60%{
+        background: radial-gradient(#06182b 7%, transparent 50%,#052e51 92%);
+    }
+    70%{
+        background: radial-gradient(#06182b 14%, transparent 50%,#052e51 84%);
+    }
+    80%{
+        background: radial-gradient(#06182b 21%, transparent 50%,#052e51 76%);
+    }
+    90%{
+        background: radial-gradient(#06182b 28%, transparent 50%,#052e51 68%);
+    }
+    100%{
+        background: radial-gradient(#06182b 35%, transparent 50%,#052e51 60%);
+    }
+}
+
+.img-wrap{
+    border-radius: 6rem;
+    padding: 0.5rem;
+    background: linear-gradient(to bottom, #aa6706, #ffeb3b);
+    width: fit-content;
+    border: 2px solid #aa6706;
+    margin: auto;
+}
+
+.text-wrap{
+    position: relative;
+}
+
+.text-container{
+    position: absolute;
+    border: 2px solid #aa6706;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #aa6706, #ffeb3b);
+    color: #ffff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-shadow: 0 0 2px black;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    bottom: -5px;
+}
+
+.rank-container{
+    position: absolute;
+    border: 2px solid #aa6706;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #aa6706, #ffeb3b);
+    color: #ffff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-shadow: 0 0 2px black;
+    bottom: -3rem;
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: fit-content;
+}
+
+.msg-container{
+    margin: auto;
+    padding-top: 3rem;
+    width: 12rem;
+    text-align: center;
+    font-style: italic;
+    background: transparent;
+    color: #ffff;
+}

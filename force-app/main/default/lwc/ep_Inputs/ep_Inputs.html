@@ -1,0 +1,75 @@
+<template>
+<div class="box">
+    <div class="container">
+        <div class={backgroundCls}>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-4">
+                <div class="img-container">
+                    <img src={imgPath} alt="">
+                </div>
+            </div>
+            <div class="slds-col slds-size_3-of-4">
+                <div class="btn-wrap">
+                    <button class={weightCls} value="Weight" onclick={handleButton}>Weight</button>
+                    <button class={orderCls} value="Order" onclick={handleButton}>Order</button>
+                    <button class={commitCls} value="Commit" onclick={handleButton}>Commit</button>
+                </div>
+                        
+            </div>
+            <div class="slds-col slds-size_4-of-4">
+                <template if:true={isWeight}>
+                    <div class="input-wrap">
+                    <div style="display: flex;flex-direction: column;">   
+                    <label class="lbl-cls" for="weight">Weight:</label>
+                    <input title="Weight" data-id="weight" id="weight" class="input-cls" type="number" name="Weight">
+                    </div> 
+                    <div style="display: flex;flex-direction: column;"> 
+                    <label class="lbl-cls" for="wDate">Date:</label>
+                    <input title="Date" data-id="wDate" id="wDate" class="input-cls" type="date" name="Date">
+                    </div>
+                </div>
+                
+                <button class="create-btn" onclick={handleCreateWeight}>Create</button>
+                </template>
+                <template if:true={isOrder}>
+                    <div class="comm-wrap">
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="6">
+                                <div style="display: flex;flex-direction: column;"> 
+                                    <label class="lbl-cls" for="oDate">Order Date:</label>
+                                    <input title="Date" data-id="oDate" id="oDate" class="input-cls" type="date" name="Date">
+                                    </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6">
+                                <div style="display: flex;flex-direction: column;"> 
+                                    <label class="lbl-cls" for="oAmt">Order Amount:</label>
+                                    <input title="Amount" data-id="oAmt" id="oAmt" class="input-cls" type="Number" name="Amount">
+                                    </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12">
+                                <div style="display: flex;flex-direction: column;"> 
+                                    <label class="lbl-cls" for="oSubject">Ordered Items:</label>
+                                    <input title="Subject" data-id="oSubject" id="oSubject" class="input-cls" type="Text" name="Subject">
+                                    </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                       
+                    </div>
+                    <button class="create-btn" onclick={handleCreateFood}>Create</button>
+                </template>
+                <template if:true={isCommit}>
+                    <div class="comm-wrap">
+                        <div style="display: flex;flex-direction: column;"> 
+                            <label class="lbl-cls" for="cDate">Commit Date:</label>
+                            <input title="Date" data-id="cDate" id="cDate" class="input-cls" type="date" name="Date">
+                            </div>
+                    </div>
+                    <button class="create-btn" onclick={handleCreateCommit}>Create</button>
+                </template>
+            </div>
+        </div>
+    </div>
+        
+    </div>
+</div>
+</template>

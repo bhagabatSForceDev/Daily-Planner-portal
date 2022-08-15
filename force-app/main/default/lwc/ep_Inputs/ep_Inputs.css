@@ -1,0 +1,114 @@
+.box{
+    display: block;
+}
+
+.container{
+    display: block;
+    margin: auto;
+    width: fit-content;
+}
+
+.btn-container{
+    width: 20rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition-property: all ease-in-out 1s; 
+    box-shadow: 2px 2px 6px black;
+}
+
+.commit-cls{
+    background: linear-gradient(90deg, #3c71bc, #94bdf7);
+    transition: background 1s, text-decoration 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.order-cls{
+    background: linear-gradient(90deg, #b53214, #fc791a);
+    transition: background 1s, text-decoration 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.weight-cls{
+    background: linear-gradient(90deg, #0b6e59, #00ba91);
+    transition: background 1s, text-decoration 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.btn-wrap{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn-cls{
+    margin: 0.5rem;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+    border: none;
+    border-radius: 17px;
+    padding: 0.5rem;
+    transition: background 1s, text-decoration 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.unselected{
+    background: #00000052;
+    color: #ffff;
+    box-shadow: 0px 1px 0px 0px black;
+}
+
+.selected{
+    background: #ffff;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.img-container{
+    width: 4rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.input-wrap{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.comm-wrap{
+    margin-top: 1rem;
+}
+
+.input-cls{
+    line-height: normal;
+    margin: 4px;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    height: 2rem;
+}
+
+.lbl-cls{
+    color: #ffff;
+    margin-left: 5px;
+}
+
+.create-btn{
+    background: #00000052;
+    color: #ffff;
+    box-shadow: 0px 1px 0px 0px black;
+    margin: 0.5rem;
+    margin-right: 0.1rem;
+    margin-left: 6.1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 17px;
+    padding: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    
+}
+
+.create-btn:hover{
+    background: #ffff;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
