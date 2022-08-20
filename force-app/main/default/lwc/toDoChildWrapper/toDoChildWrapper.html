@@ -1,0 +1,25 @@
+<template>
+    <div class="name-cls">{listName}</div>
+    <div class="align-content-cls">
+        <template if:true={isLoaded}>
+            <template for:each={finalArr} for:item="item">
+                <div key={item.Id} style={item.Style}>
+                   <c-to-do-child to-do-item={item} onchanged={handleChanged}></c-to-do-child>
+                </div>
+            </template>
+            
+        </template>
+        <template if:false={isLoaded}>
+            <div role="status" class="slds-spinner slds-spinner_medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+        </template>
+        <div class="add-btn" onclick={handleCreateLvl1}>
+            +
+        </div>
+        <!--lightning-button variant="brand" label="+" onclick={handleCreateLvl1}></lightning-button-->
+    </div>
+    
+</template>

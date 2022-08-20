@@ -1,0 +1,80 @@
+.main{
+    display: block;
+}
+
+.save-cls:hover{
+    width: min-content;
+    transform: scale(1.3,1.3);
+    cursor: pointer;
+}
+
+.layout-cls{
+    width: min-content;
+    margin-left: 0.5rem;
+}
+
+.text-cls{
+    padding: 0.2rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.lay-cls:hover{
+    color: white;
+    background-color: #016ea7;
+}
+
+.check-button{
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}
+
+.uncheck-button{
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    background: white;
+    border: 1.5px solid grey;
+}
+
+.check-adjust{
+    width: min-content !important;
+    margin-top: 0.25rem !important;
+}
+
+.max-cls{
+    width: max-content;
+    min-width: 5rem;
+}
+/*
+.min-cls{
+    width: min-content;
+}*/
+
+@media only screen and (max-width: 600px) {
+    
+    .text-cls{
+    padding: 0.2rem;
+    font-weight: 500;
+    font-size: 0.7rem;
+    max-width: 12rem;
+    word-break: break-all;
+    }
+
+    .check-adjust{
+        width: min-content !important;
+        margin-top: 0rem !important;
+    }
+
+    .check-button{
+        width: 0.7rem !important;
+        height: 0.7rem !important;
+    }
+    
+    .uncheck-button{
+        width: 0.7rem !important;
+        height: 0.7rem !important;
+        background: white;
+        border: 1px solid grey;
+    }
+
+  }

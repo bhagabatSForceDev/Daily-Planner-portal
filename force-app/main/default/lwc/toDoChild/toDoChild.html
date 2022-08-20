@@ -1,0 +1,83 @@
+<template>
+<template if:false={isEdited}>
+    <lightning-layout class="lay-cls" onmouseenter={mouseEnter} onmouseleave={mouseLeave}>
+        <lightning-layout-item size="10">
+            <div class="slds-grid slds-wrap slds-gutters_xxx-small"><!--lightning-input type="checkbox" checked={toDoItem.Is_Complete__c} onclick={handleCheck}></lightning-input-->
+                <div class="slds-col slds-size_2-of-12 check-adjust">
+                    <template if:true={checkVal}>
+                        <label class="slds-checkbox-button check-button slds-checkbox-button_is-checked" for="example-unique-id-64">
+                            <input type="checkbox" class="slds-assistive-text" checked="" id="example-unique-id-64" value="example-unique-id-64" onclick={handleCheck}/>     
+                    <span class="slds-icon_container slds-icon-utility-recycle_bin_empty slds-current-color" title="Description of icon when needed">
+                        <template if:true={isDesktop}>
+                            <lightning-icon icon-name="utility:check" size="xx-small"></lightning-icon>
+                        </template>
+                    </span>  
+                </label>
+                    </template>
+                        <template if:false={checkVal}>
+                            <label class="slds-checkbox-button uncheck-button" for="example-unique-id-66">
+                                <input type="checkbox" class="slds-assistive-text" id="example-unique-id-66" value="example-unique-id-66" checked="" onclick={handleCheck}/>
+                                <span class="slds-icon_container slds-icon-utility-recycle_bin_full slds-current-color" title="Description of icon when needed">
+                                    <!--lightning-icon icon-name="utility:routing_offline" variant="inverse" size="xx-small"></lightning-icon-->
+                                <span class="slds-assistive-text">Add product</span>
+                                </span>
+                                </label> 
+                    </template>
+                </div>
+                    
+                        
+                    
+                
+
+            <!--/span>
+            <span-->
+                <div class="slds-col slds-size_8-of-12 max-cls">
+                    <div class="text-cls" onclick={handleDblClick}>
+                
+                        {toDoItem.Number}{toDoItem.Summary__c}
+                    </div>
+                </div> 
+                
+                
+                <div class="slds-col slds-size_1-of-12">
+                    <template if:true={isAdd}>
+                        <template if:true={isDesktop}>
+                            <div class="save-cls" onclick={handleCreate}>
+                            <lightning-icon icon-name="action:new" size="x-small"></lightning-icon>
+                        </div>
+                    </template>
+                    </template> 
+                </div>
+                 
+            
+        </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="2">
+            <!--template if:true={isAdd}>
+            <div class="save-cls" onclick={handleCreate}>
+                <lightning-icon icon-name="action:new" size="x-small"></lightning-icon>
+            </div>
+        </template-->
+        </lightning-layout-item>
+    </lightning-layout>
+    
+</template>
+<template if:true={isEdited}>
+    <lightning-layout>
+        <lightning-layout-item size="10">
+            <lightning-input value={toDoItem.Summary__c} onchange={handleTextChange} variant="label-hidden" data-id="textInp" type="text" placeholder="Enter text..."></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item class="layout-cls" size="1">
+            <div class="save-cls" onclick={handleSave}>
+            <lightning-icon icon-name="action:record" size="x-small"></lightning-icon>
+        </div>
+        </lightning-layout-item>
+        <lightning-layout-item class="layout-cls" size="1">
+            <div class="save-cls" onclick={handleDelete}>
+            <lightning-icon icon-name="action:delete" size="x-small"></lightning-icon>
+        </div>
+        </lightning-layout-item>
+    </lightning-layout>
+    
+</template>
+</template>

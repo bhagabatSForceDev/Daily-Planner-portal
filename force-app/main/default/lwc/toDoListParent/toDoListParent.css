@@ -1,0 +1,29 @@
+.main{
+    display: block;
+    border: 2px solid black;
+    height: 50rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: -3px 4px 14px 4px #00000091;
+}
+
+.list-cls{
+    padding: 0.2rem;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.create-btn-cls{
+    margin-top: 1.5rem;
+}
+
+.list-cls:hover{
+    color: white;
+    background-color: #016ea7;
+}
+
+.listbox-cls{
+    margin-left: 0.3rem;
+    width: 85rem;
+}

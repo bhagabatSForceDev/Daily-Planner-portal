@@ -1,0 +1,59 @@
+<template>
+<div class="slds-form-element main" onclick={handleMouseOut}>
+    
+    
+    <div class="slds-form-element__control" >
+        <div class="slds-combobox_container">
+        <div data-id='open' class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open opencls">
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item size="12" small-device-size="7" class="slds-p-horizontal_small">
+                    <label class="slds-form-element__label" for="combobox-id-1" id="combobox-label-id-33">List Name:</label>
+                    <input type="text" class="slds-input slds-combobox__input" id="combobox-id-1"
+             aria-autocomplete="list" aria-controls="listbox-id-1" aria-expanded="false" aria-haspopup="listbox"
+              role="combobox" placeholder="Search..." value={searchText} onclick={handleOpenList} oninput={handleChange}/>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" small-device-size="3" class="slds-p-left_small slds-p-bottom_none">
+                    <label class="slds-form-element__label" for="date-box-1" id="combobox-label-id-34">List Date:</label>
+                    <input type="date" class="slds-input slds-combobox__input" value={searchDate} oninput={handleSelect} id="date-box-1">
+                </lightning-layout-item>
+                <lightning-layout-item size="12" small-device-size="2" class="slds-p-left_small slds-p-bottom_none">
+                    <div class="create-btn-cls">
+                        <lightning-button variant="brand" label="Create List" onclick={handleCreateList}></lightning-button>
+                    </div>   
+                </lightning-layout-item>
+            </lightning-layout>
+                
+              
+            
+            </div>
+                <template if:true={isLoaded}>
+                    <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid listbox-cls" role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical slds-p-top_none" role="presentation">
+                        
+                        <template for:each={listItems} for:item="item">
+                            <li key={item.Id} role="presentation" data-value={item.Id} data-name={item.Name} onclick={handleSelectedList} class="slds-listbox__item slds-p-around_xxx-small list-cls">
+                              {item.Name}
+                            </li>
+                        </template>
+                    
+                    <template if:false={isLoaded}>
+                        <div role="status" class="slds-spinner slds-spinner_medium">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                          </div>
+                    </template>
+                    </ul>
+                    </div>
+                </template>
+            
+            
+        </div>
+        </div>
+    </div>
+    <!--{pinList.data.Id} - {pinList.data.Name} 
+    {testName} - {testId}-->
+    <c-to-do-child-wrapper class="wrapper-cls" list-id={pinnedId} list-name={pinnedName}></c-to-do-child-wrapper>
+</div>
+</template>
